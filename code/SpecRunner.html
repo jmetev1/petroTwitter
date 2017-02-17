@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/lodash/lodash.js"></script>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script src="node_modules/sinon/pkg/sinon-server-1.17.3.js"></script>
+    <script src="node_modules/sinon/pkg/sinon-1.17.3.js"></script>
+    <script>
+      mocha.setup('bdd');
+      var expect = chai.expect;
+      $(function() {
+        window.mochaPhantomJS ? mochaPhantomJS.run() : mocha.run()
+      });
+    </script>
+
+    <!-- include source files here... -->
+    <script src="src/config/youtube.js"></script>
+    <script src="src/lib/searchYouTube.js"></script>
+    <script src="src/data/exampleVideoData.js"></script>
+    <script src="src/views/VideoListEntry.js"></script>
+    <script src="src/views/VideoList.js"></script>
+    <script src="src/views/VideoPlayer.js"></script>
+    <script src="src/views/Nav.js"></script>
+    <script src="src/views/Search.js"></script>
+    <script src="src/views/App.js"></script>
+
+    <!-- include spec files here... -->
+    <script src="spec/data/fakeVideoData.js"></script>
+    <script src="spec/data/moreFakeVideoData.js"></script>
+    <script src="spec/components/Wrapper.js"></script>
+    <script src="spec/components/VideoListSpec.js"></script>
+    <script src="spec/components/VideoListEntrySpec.js"></script>
+    <script src="spec/components/VideoPlayerSpec.js"></script>
+    <script src="spec/components/AppSpec.js"></script>
+    <script src="spec/lib/searchYouTubeSpec.js"></script>
+    <script src="spec/components/SearchSpec.js"></script>
+
+  </head>
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "ng-cast",
+  "version": "1.0.0",
+  "description": "Re-making YouTube with Angular",
+  "author": "Hack Reactor <curriculum.team@hackreactor.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "test": "live-server --open=./SpecRunner.html --port=8081",
+    "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
+    "lodash": "^4.6.1",
+    "angular": "^0.14.7",
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "2.3.3",
+    "sinon": "1.17.3"
+  }
+}
