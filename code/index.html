@@ -3,27 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recast.ly - Recast Yourself</title>
+  <title>A new $scope</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <script src="node_modules/jquery/dist/jquery.js"></script>
-  <script src="node_modules/react/dist/react.js"></script>
-  <script src="node_modules/react-dom/dist/react-dom.js"></script>
   <script src="node_modules/lodash/lodash.js"></script>
+  <script src="node_modules/angular/angular.js"></script>
 </head>
 <body>
-  <div ng-app="app"></div>
+  <app ng-app="a-new-scope"></app>
   <!-- START SOLUTION -->
   <script src="src/data/exampleVideoData.js"></script>
-  <script src="src/config/youtube.js"></script>
-  <script src="src/lib/searchYouTube.js"></script>
-  <!-- END SOLUTION -->
+  <script src="src/index.js"></script>
+  <script src="src/services/youTube.js"></script>
+  <script src="src/services/appConfig.js"></script>
+  <script src="src/components/app.js"></script>
+  <script src="src/components/videoPlayer.js"></script>
+  <script src="src/components/search.js"></script>
+  <!-- END SOLUTION
   <script src="src/app/VideoListEntry.js"></script>
   <script src="src/app/VideoList.js"></script>
-  <script src="src/app/VideoPlayer.js"></script>
   <script src="src/app/Nav.js"></script>
-  <script src="src/app/Search.js"></script>
   <script src="src/app/App.js"></script>
   <script src="src/app.js"></script>
+-->
+  <script src="src/config/youtube.js"></script>
 </body>
 </html>
