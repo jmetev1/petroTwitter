@@ -4,11 +4,12 @@ angular.module('a-new-scope')
   var self = this;
 
   this.videos = $window.exampleVideoData;
-  this.currentVideo = null;
+  this.currentVideo = self.videos[0];
 
   this.searchService = youTube;
   this.searchResults = function(data){
     self.videos = data;
+    self.currentVideo = self.videos[0];
   }
 
   this.selectVideo = function(video){

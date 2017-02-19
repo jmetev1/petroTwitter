@@ -1,4 +1,4 @@
-<div class="video-player" ng-if="!ctrl.props">Please wait...</div>
+<div class="video-player loading" ng-if="!ctrl.props">Please wait...</div>
 <div class="video-player" ng-if="ctrl.props">
   <div class="embed-responsive embed-responsive-16by9">
     <iframe class="embed-responsive-item" src="{{ctrl.videoUrl(ctrl.props.id.videoId)}}" allowFullScreen></iframe>
