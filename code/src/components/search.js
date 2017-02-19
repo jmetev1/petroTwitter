@@ -10,8 +10,8 @@ angular.module('a-new-scope')
 })
 /* END SOLUTION */
 .directive('search', function() {
-  /* START SOLUTION */
   return {
+    /* START SOLUTION */
     scope: {
       service: '<',
       result: '<'
@@ -21,8 +21,8 @@ angular.module('a-new-scope')
     controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'src/templates/search.html'
+    /* ELSE
+    // TODO
+    END SOLUTION */
   }
-  /* ELSE
-  // TODO
-  END SOLUTION */
 });

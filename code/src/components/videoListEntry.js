@@ -1,7 +1,7 @@
 angular.module('a-new-scope')
 .directive('videoListEntry', function() {
-  /* START SOLUTION */
   return {
+    /* START SOLUTION */
     scope: {
       video: '=',
       onClick: '<'
@@ -11,8 +11,8 @@ angular.module('a-new-scope')
     controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'src/templates/videoListEntry.html'
+    /* ELSE
+    // TODO
+    END SOLUTION */
   }
-  /* ELSE
-  // TODO
-  END SOLUTION */
 });

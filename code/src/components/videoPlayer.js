@@ -7,8 +7,8 @@ angular.module('a-new-scope')
 })
 /* END SOLUTION */
 .directive('videoPlayer', function() {
-  /* START SOLUTION */
   return {
+    /* START SOLUTION */
     scope: {
       video: '<'
     },
@@ -17,8 +17,8 @@ angular.module('a-new-scope')
     controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'src/templates/videoPlayer.html'
+    /* ELSE
+    // TODO
+    END SOLUTION */
   }
-  /* ELSE
-  // TODO
-  END SOLUTION */
 });

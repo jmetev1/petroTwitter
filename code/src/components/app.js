@@ -19,16 +19,16 @@ angular.module('a-new-scope')
   /* END SOLUTION */
 })
 .directive('app', function() {
-  /* START SOLUTION */
   return {
+    /* START SOLUTION */
     scope: {},
     restrict: 'E',
     controller: 'AppCtrl',
     controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'src/templates/app.html'
+    /* ELSE
+    // TODO
+    END SOLUTION */
   }
-  /* ELSE
-  // TODO
-  END SOLUTION */
 });
