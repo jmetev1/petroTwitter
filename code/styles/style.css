@@ -37,6 +37,10 @@ body {
   box-shadow: 0 1px 0 rgba(0,0,0,0.10);
 }
 
+.video-player {
+  padding-left: 20px;
+}
+
 .video-player-details {
   background: #fff;
   padding: 8px;
@@ -72,5 +76,9 @@ body {
 }
 
 .loading {
+  padding-left: 20px;
+}
+
+.media-body {
   padding-left: 20px;
 }
