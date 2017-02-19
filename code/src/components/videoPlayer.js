@@ -1,17 +1,24 @@
 angular.module('a-new-scope')
+/* START SOLUTION */
+.controller('VideoPlayerController', function() {
+  this.videoUrl = function(videoId){
+    return `https://www.youtube.com/embed/${videoId}`
+  }
+})
+/* END SOLUTION */
 .directive('videoPlayer', function() {
+  /* START SOLUTION */
   return {
     scope: {
-      'props': '<video'
+      video: '<'
     },
     restrict: 'E',
-    controller: function() {
-      this.videoUrl = function(videoId){
-        return `https://www.youtube.com/embed/${videoId}`
-      }
-    },
+    controller: 'VideoPlayerController',
     controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'src/templates/videoPlayer.html'
   }
+  /* ELSE
+  // TODO
+  END SOLUTION */
 });

@@ -1,13 +1,14 @@
 angular.module('a-new-scope')
-.service('youTube', function($http, appConfig){
+/* START SOLUTION */
+.service('youTube', function($http, $window){
   this.search = function(query, callback){
     $http.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
         part: 'snippet',
         q: query,
         type: 'video',
-        key: appConfig.key,
-        maxResults: appConfig.max,
+        maxResults: 5,
+        key: $window.YOUTUBE_API_KEY,
         videoEmbeddable: 'true'
       }
     })
@@ -23,3 +24,8 @@ angular.module('a-new-scope')
     });
   }
 });
+/* ELSE
+.service('youTube', function(){
+  // TODO
+});
+END SOLUTION */

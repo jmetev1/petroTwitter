@@ -1,10 +1,22 @@
-<div class="video-player loading" ng-if="!ctrl.props">Please wait...</div>
-<div class="video-player" ng-if="ctrl.props">
+<!-- START SOLUTION -->
+<div class="video-player loading" ng-if="!ctrl.video">Please wait...</div>
+<div class="video-player" ng-if="ctrl.video">
   <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="{{ctrl.videoUrl(ctrl.props.id.videoId)}}" allowFullScreen></iframe>
+    <iframe class="embed-responsive-item" src="{{ctrl.videoUrl(ctrl.video.id.videoId)}}" allowFullScreen></iframe>
   </div>
   <div class="video-player-details">
-    <h3>{{ctrl.props.snippet.title}}</h3>
-    <div>{{ctrl.props.snippet.description}}</div>
+    <h3>{{ctrl.video.snippet.title}}</h3>
+    <div>{{ctrl.video.snippet.description}}</div>
   </div>
 </div>
+<!-- ELSE
+<div class="video-player">
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" allowFullScreen></iframe>
+  </div>
+  <div class="video-player-details">
+    <h3>Video Title</h3>
+    <div>Video Description</div>
+  </div>
+</div>
+END SOLUTION -->
