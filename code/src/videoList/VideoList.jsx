@@ -1,14 +1,5 @@
 /* START SOLUTION */
 var VideoList = ({videos, handleVideoListEntryTitleClick}) => (
-  <div className="video-list media">
-    {videos.map((video) =>
-      <VideoListEntry
-        key={video.etag}
-        video={video}
-        handleVideoListEntryTitleClick={handleVideoListEntryTitleClick}
-      />
-    )}
-  </div>
 );
 /* ELSE
 var VideoList = () => (

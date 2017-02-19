@@ -1,26 +1,26 @@
 angular.module('a-new-scope')
 
-.controller('app-ctrl', function($window, youTube) {
+.controller('AppCtrl', function($window, youTube) {
+  var self = this;
 
-      var self = this;
-      this.currentVideos = [];
+  this.videos = $window.exampleVideoData;
+  this.currentVideo = null;
 
-      this.currentVideo = $window.exampleVideoData[0];
-      this.searchService = youTube;
-      this.searchResults = function(data){
-        self.currentVideos = data;
-        console.log('currentVideos = ', data);
-        // do something.
-      }
+  this.searchService = youTube;
+  this.searchResults = function(data){
+    self.videos = data;
+  }
+
+  this.selectVideo = function(video){
+    self.currentVideo = video
+  }
 })
 
 .directive('app', function() {
   return {
-    scope: {
-      'props': '<video'
-    },
+    scope: {},
     restrict: 'E',
-    controller: 'app-ctrl',
+    controller: 'AppCtrl',
     controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'src/templates/app.html'
