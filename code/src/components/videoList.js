@@ -3,16 +3,16 @@ angular.module('a-new-scope')
   return {
     /* START SOLUTION */
     scope: {
-      videos: '=',
+      videos: '<',
       onClick: '<'
     },
     restrict: 'E',
-    controller: function(){},
+    controller: function() {},
     controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'src/templates/videoList.html'
     /* ELSE
     // TODO
     END SOLUTION */
-  }
+  };
 });

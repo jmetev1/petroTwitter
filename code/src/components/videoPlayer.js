@@ -1,9 +1,9 @@
 angular.module('a-new-scope')
 /* START SOLUTION */
 .controller('VideoPlayerController', function() {
-  this.videoUrl = function(videoId){
-    return `https://www.youtube.com/embed/${videoId}`
-  }
+  this.videoUrl = function(videoId) {
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
 })
 /* END SOLUTION */
 .directive('videoPlayer', function() {
@@ -20,5 +20,5 @@ angular.module('a-new-scope')
     /* ELSE
     // TODO
     END SOLUTION */
-  }
+  };
 });

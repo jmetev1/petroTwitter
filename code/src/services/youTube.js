@@ -1,7 +1,7 @@
 angular.module('a-new-scope')
 /* START SOLUTION */
-.service('youTube', function($http, $window){
-  this.search = function(query, callback){
+.service('youTube', function($http, $window) {
+  this.search = function(query, callback) {
     $http.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
         part: 'snippet',
@@ -12,17 +12,17 @@ angular.module('a-new-scope')
         videoEmbeddable: 'true'
       }
     })
-    .then(function({data}){
+    .then(function({data}) {
       if (callback) {
         callback(data.items);
       }
     })
-    .catch(function({data}){
+    .catch(function({data}) {
       data.error.errors.forEach((err) =>
         console.error(err.message)
       );
     });
-  }
+  };
 });
 /* ELSE
 .service('youTube', function(){

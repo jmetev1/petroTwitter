@@ -1,12 +1,12 @@
 angular.module('a-new-scope')
 /* START SOLUTION */
-.controller('SearchController', function(){
+.controller('SearchController', function() {
   var context = this;
-  this.handleClick = function(){
-    context.service.search(context.input, function(data){
+  this.handleClick = function() {
+    context.service.search(context.input, function(data) {
       context.result(data);
-    })
-  }
+    });
+  };
 })
 /* END SOLUTION */
 .directive('search', function() {
@@ -24,5 +24,5 @@ angular.module('a-new-scope')
     /* ELSE
     // TODO
     END SOLUTION */
-  }
+  };
 });

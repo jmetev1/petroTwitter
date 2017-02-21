@@ -1,21 +1,21 @@
 angular.module('a-new-scope')
-.controller('AppCtrl', function($window, youTube) {
-  var self = this;
+.controller('AppCtrl', function($window/* START SOLUTION */, youTube/* END SOLUTION */) {
 
   // TODO: what is the starting point for this sprint?
   this.videos = $window.exampleVideoData;
-  this.currentVideo = self.videos[0];
+  this.currentVideo = this.videos[0];
 
   /* START SOLUTION */
+  var self = this;
   this.searchService = youTube;
-  this.searchResults = function(data){
+  this.searchResults = function(data) {
     self.videos = data;
     self.currentVideo = self.videos[0];
-  }
+  };
 
-  this.selectVideo = function(video){
-    self.currentVideo = video
-  }
+  this.selectVideo = function(video) {
+    self.currentVideo = video;
+  };
   /* END SOLUTION */
 })
 .directive('app', function() {
@@ -30,5 +30,5 @@ angular.module('a-new-scope')
     /* ELSE
     // TODO
     END SOLUTION */
-  }
+  };
 });
