@@ -1,4 +1,4 @@
-# Recast.ly
+# ng-cast
 
 A designer friend of yours has been kind enough to give you the skeleton of a video player application. It has all the needed styling and React components, but only renders dummy content. Your job is to bring this application to life by hooking it up with data from the YouTube Data API. After completing the Bare Minimum Requirements, you'll be able to live-search, display, and play any video from YouTube.
 
@@ -6,12 +6,11 @@ A designer friend of yours has been kind enough to give you the skeleton of a vi
 
 ## High Level Goals of this Sprint
 
-* Understand the importance, and experience the benefits of client side libraries by way of building with React
-* Learn how to think about web apps as components
-* Learn how to transpile code with Babel's command line tool
-* Learn popular ES6 features and practice using them
-* Gain more exposure interacting with a REST API (in this case, the [YouTube Data API](https://developers.google.com/youtube/v3/?hl=en))
-* Gain more experience with larger codebase, containing many modules across a variety of files
+* Understand the importance, and experience the benefits of client side libraries by way of building with AngularJS
+* Continue Learn how to think about web apps as components
+* Understand how the differences between AngularJS and React
+* Continue to gain exposure interacting with a REST API (in this case, the [YouTube Data API](https://developers.google.com/youtube/v3/?hl=en))
+
 
 ## Thinking in Components
 
@@ -22,7 +21,6 @@ Functioning, but non-interacting versions of the required components for this ap
 ![Recast.ly component layout](https://cloud.githubusercontent.com/assets/6980359/12561583/cf9b2a1a-c355-11e5-9fe6-9aeffbce4a28.png "Recast.ly component layout")
 
 * `App` - The top level container for the entire application. This is the component that will be rendered to the DOM
-* `Nav` - A container component for the top navigation bar
 * `Search` - Responsible for knowing and communicating information about the search input field
 * `VideoPlayer` - Responsible for playing a single video and displaying information about it
 * `VideoList` - A container component responsible for populating video list entry components
@@ -45,38 +43,6 @@ Install this sprint's dependencies:
 
 - [ ] [Install Node.js](https://nodejs.org/en/) if you haven't yet.
 - [ ] Run `npm install`
-
-### Babel
-
-In order to take advantage of React's declarative [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html) syntax, we need to use a tool called a **transpiler**. A transpiler converts source code written with non-standard syntax, into to a version of JavaScript that will work in all major environments. [Babel](http://babeljs.io/) is a generic transpiler for JavaScript that can convert both JSX and [ES6](http://babeljs.io/docs/learn-es2015/) syntax.
-
-We're going to use Babel's [command line interface](https://babeljs.io/docs/usage/cli/) to transpile the source code in this sprint. To install it globally, run:
-
-```bash
-npm install -g babel-cli
-```
-
-The following command will transpile all of the JSX/ES6 files in this sprint into parallel ES5 files in the `compiled/` directory.
-
-```bash
-babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline
-```
-This command might seem intimidating, but is similar to passing multiple arguments to a function. Let's break it down:
-
-* `.` tells Babel to transpile all javascript files in the current working directory
-* `--out-dir` tells Babel to put the transpiled files into the `compiled/` folder
-* `--presets` tells Babel what kind of transformations to make. `es2015` transpiles ES6 syntax, and `react` transpiles JSX. Each preset is installed as it's own package, with the naming convention `babel-preset-*`.
-* `--ignore` tells Babel to not transpile any files in the the `node_modules` and `compiled` directories
-* `--source-maps` tells Babel to include [source maps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) with our transpiled code, making debugging much easier.
-The `--presets` option tells Babel what kind of transformations to make. `es2015` transpiles ES6 syntax, and `react` transpiles JSX. Each preset is installed as its own package, with the naming convention `babel-preset-*`.
-
-Inside of `index.html` and `SpecRunner.html`, the *compiled* files are loaded in the script tags. After making any changes to the files in the `src/` directory, you must transpile them to see the changes reflected when you refresh your html files.
-
-- [ ] Transpile all the source files into the `compiled` directory
-
-This is arduous to do manually after every change. Luckily, Babel has an option that makes this much easier.
-
-- [ ] Find a way to make `babel` compile files as they are changed
 
 ### Live reloading server
 
@@ -109,14 +75,7 @@ npm comes with a handy [scripting](https://docs.npmjs.com/misc/scripts) feature 
 ## Bare Minimum Requirements
 
 - [ ] Inside of `src/index.js`, render the `App` component to the DOM and explore the codebase to get an understanding of each component's responsibility
-- [ ] Read [this guide](https://facebook.github.io/react/docs/thinking-in-react.html) to learn more about thinking in components. This guide uses the old `React.createClass` syntax to create a class component. Do not worry about the syntax as much as the philosophy of structuring a React app.
-- [ ] Use ES6. There are a few new features that play very nicely with React. Insist on using them throughout this sprint:
-  - [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
-  - [Arrow function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), especially to exploit its quality of binding `this` to the lexical scope
-  - [Shorthand object property and method syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
-  - [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings)
-  - [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
-  - [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [ ] Read [this guide](http://busypeoples.github.io/post/thinking-in-components-angular-js/) to learn more about thinking in components with AngularJS.
 
 ### Create a dynamic Video List component
 
@@ -144,7 +103,6 @@ Videos are played by passing a source url to the `iframe` tag inside the `VideoP
 
 Now it's time to make the stateless functional components interact. In React, sibling components can not directly access each other, so they need the help of a parent component to manage communication between them. In this case, `App` is the parent component for the sibling components `VideoList` and `VideoPlayer`.
 
-- [ ] If you haven't already, complete **\[Course\] 6ees6ees6ees**.
 - [ ] Refactor `App` into a [class component](https://facebook.github.io/react/docs/reusable-components.html#es6-classes) using ES6 classes
 - [ ] Initialize the `state` of `App` to keep track of all the videos in the video list and the current video in the player. Pass this `state` down as props to its children components. Continue to use the example data.
 - [ ] Make it so that when the title of a `VideoListEntry` is clicked, that video is displayed in the player. **Do not** add `state` to any of the functional components.
@@ -205,7 +163,7 @@ Our advanced content is intended to throw you in over your head, requiring you t
 ## Resources
 
 * The [Babel REPL](http://babeljs.io/repl/) shows you a ES5 representation of ES6/JSX code
-* [ES6 Features](https://github.com/lukehoban/es6features)
+
 * [Facebook's React Tutorial](https://facebook.github.io/react/docs/tutorial.html)
 * [YouTube API](https://developers.google.com/youtube/v3/getting-started)
-* [Intro to Redux](https://egghead.io/series/getting-started-with-redux)
+* [The AngularJS Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
