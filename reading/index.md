@@ -1,30 +1,34 @@
 # ng-cast
 
-A designer friend of yours has been kind enough to give you the skeleton of a video player application. It has all the needed styling and React components, but only renders dummy content. Your job is to bring this application to life by hooking it up with data from the YouTube Data API. After completing the Bare Minimum Requirements, you'll be able to live-search, display, and play any video from YouTube.
+Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building the website using multiple technologies, before ultimately choosing the best one from several options. Your job is to build the the YouTube video broswer app using AngularJS. After completing the Bare Minimum Requirements, you'll be able to live-search, display, and play any video from YouTube.
 
-![Recast.ly demo](https://cloud.githubusercontent.com/assets/6980359/12561585/d24594a8-c355-11e5-9aa9-adb6e2c40a40.gif "Recast.ly demo")
+![Video Player Demo](https://github.com/reactorcore/course.ng-cast/raw/master/assets/video-player.gif "Video Player Demo")
 
 ## High Level Goals of this Sprint
 
 * Understand the importance, and experience the benefits of client side libraries by way of building with AngularJS
-* Continue Learn how to think about web apps as components
-* Understand how the differences between AngularJS and React
+* Continue learning how to think about web apps as components
+* Understand how the differences between AngularJS and React how each framework's strength might be used in future projects
 * Continue to gain exposure interacting with a REST API (in this case, the [YouTube Data API](https://developers.google.com/youtube/v3/?hl=en))
 
 
 ## Thinking in Components
 
-A front-end application built with React is built entirely out of React components (frequently referred to just as components). Components can contain other components, but each component should be responsible for doing only one thing. This mimics best practices for creating functions, objects, and even programs. Making decisions about what components to create and how to organize them is somewhat arbitrary. Through experience and error you will develop more well-formed opinions, and making these kinds of decisions will become easier.
+When building front-end applications, one very good approach is to break apart the functionality of the application into small, easily understandable and reusable pieces. We often call these pieces *components*, and in Angular specifically, we call them *directives*. Angular directives are custom HTML elements with super powers. When composed together in just the right way, these components work in concert to accomplish the goals of the application you are building.
 
-Functioning, but non-interacting versions of the required components for this application are already built. Each component lives in its own file inside of the `src/components/` directory. During this sprint you will be transforming these components to interact with each other and the YouTube Data API. Here's how they are organized:
+The practice of teasing apart an application into small components lies somewhere in the spectrum between an art and a science. There are often several ways to accomplish the same goal, and the more artful approaches yield better quality code that is equally as simple. Through your own experiences -- both positive and negative -- you will develop skills to artfully navigate this terrain.
 
-![Recast.ly component layout](https://cloud.githubusercontent.com/assets/6980359/12561583/cf9b2a1a-c355-11e5-9fe6-9aeffbce4a28.png "Recast.ly component layout")
+The specific extent of each component's super powers is another area that you will find challenging. With practice, you will learn how much power to give each element and be able to identify where to place code that implements those powers.
 
-* `App` - The top level container for the entire application. This is the component that will be rendered to the DOM
-* `Search` - Responsible for knowing and communicating information about the search input field
-* `VideoPlayer` - Responsible for playing a single video and displaying information about it
-* `VideoList` - A container component responsible for populating video list entry components
-* `VideoListEntry` - A component that shows a thumbnail view for a single video. When the title of this video is clicked, that video will be played in the `VideoPlayer` component
+In this sprint, the decision about how to split the app into componenets has already been made for you. Each directive lives in its own file inside of the `src/components/` directory. During this sprint you will be building out these directives to correctly interact with each other and the YouTube Data API. Here's how they are organized:
+
+![Video Player component layout](https://github.com/reactorcore/course.ng-cast/raw/master/assets/components.png "Video Player component layout")
+
+* `app` - The top level container for the entire application. 
+* `search` - Responsible for knowing and communicating information about the search input field
+* `videoPlayer` - Responsible for playing a single video and displaying information about it
+* `videoList` - A container component responsible for populating video list entry components
+* `videoListEntry` - A component that shows a thumbnail view for a single video. When the title of this video is clicked, that video will be shown in the `VideoPlayer` component
 
 ## Project set up
 
@@ -32,12 +36,11 @@ Functioning, but non-interacting versions of the required components for this ap
 
 This sprint uses [npm](https://www.npmjs.com/) to manage its dependencies. npm comes bundled with Node, and is another JavaScript package manager that makes it easy for developers to share and reuse code. Even though npm started in the Node ecosystem, it is quickly becoming the default choice for sharing all types of JavaScript code.
 
-If you're comfortable with Bower, you should feel right at home with npm. Understanding a few small differences is all you need to get up and running:
+If you're comfortable with other package managers such as Bower, you will feel right at home with npm:
 
-* Instead of running `bower install` you run `npm install`
-* npm's configuration file is `package.json` instead of `bower.json`
-* npm downloads packages into `node_modules` instead of `bower_components`
-* npm has no equivalent of `.bowerrc`
+* Run `npm install` to install your package dependencies
+* npm's configuration file is `package.json`
+* npm downloads packages into a folder called `node_modules` which is automatically created if it does not exist
 
 Install this sprint's dependencies:
 
@@ -67,10 +70,6 @@ Try it out:
 npm comes with a handy [scripting](https://docs.npmjs.com/misc/scripts) feature that lets you define shell commands inside of `package.json`. If you want to improve your application's build process, consider completing the following optional task:
 
 - [ ] Write an npm `start` script that combines the previous two build steps together
-
-### React Dev Tools
-
-- [ ] Install the [React Dev Tools](https://github.com/facebook/react-devtools) extension for Chrome to make debugging this sprint easier.
 
 ## Bare Minimum Requirements
 
