@@ -2,7 +2,7 @@ angular.module('video-player')
 /* START SOLUTION */
 .controller('VideoPlayerController', function() {
   this.videoUrl = function(videoId) {
-    return `https://www.youtube.com/embed/${videoId}`;
+    return 'https://www.youtube.com/embed/' + videoId;
   };
 })
 /* END SOLUTION */

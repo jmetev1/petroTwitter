@@ -12,14 +12,15 @@ angular.module('video-player')
         videoEmbeddable: 'true'
       }
     })
-    .then(function({data}) {
+    .then(function(res) {
       if (callback) {
-        callback(data.items);
+        callback(res.data.items);
       }
     })
-    .catch(function({data}) {
-      data.error.errors.forEach((err) =>
-        console.error(err.message)
+    .catch(function(res) {
+      res.data.error.errors.forEach(function(err) { 
+        console.error(err.message);
+      }
       );
     });
   };
