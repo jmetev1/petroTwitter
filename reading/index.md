@@ -1,8 +1,8 @@
 # ng-cast: YouTube with AngularJS
 
-Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building the website using multiple technologies, before ultimately choosing the best one from several options. Your job is to build the the YouTube Video Player app using AngularJS. After completing the Bare Minimum Requirements, you'll be able to live-search, display, and play any video from YouTube.
+Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building the website using multiple technologies, before ultimately choosing the best one from several options. Your job is to build the the YouTube Video Player app using AngularJS. After completing the Bare Minimum Requirements, you'll be able to search, display, and play any video from YouTube.
 
-![Video Player Demo](https://github.com/reactorcore/course.ng-cast/raw/master/assets/video-player.gif "Video Player Demo")
+![Video Player Demo](https://s3-us-west-2.amazonaws.com/sprint.content/course.ng-cast/video-player.gif "Video Player Demo")
 
 ## High Level Goals of this Sprint
 
@@ -22,7 +22,7 @@ The specific extent of each component's capabilities is another area that you wi
 
 In this sprint, the decision about how to split the app into componenets has already been made for you. Each directive lives in its own file inside of the `src/components` directory. During this sprint you will be building out these directives to correctly interact with each other and the YouTube data API. Here's how they are organized:
 
-![Video Player component layout](https://github.com/reactorcore/course.ng-cast/raw/master/assets/components.png "Video Player component layout")
+![Video Player component layout](https://s3-us-west-2.amazonaws.com/sprint.content/course.ng-cast/components.png "Video Player component layout")
 
 * `app` - The top level container for the entire application. 
 * `search` - Responsible for knowing and communicating information about the search input field
