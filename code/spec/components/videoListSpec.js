@@ -24,14 +24,14 @@ describe('video list', function() {
     });
   });
 
-  it('should have a video array on isolate scope', function() {
+  it('should have a videos property on the scope', function() {
     createVideoListElement({ videos: fakeVideoData }, function(element) {
       expect(element.isolateScope().ctrl.videos).to.exist;
       expect(element.isolateScope().ctrl.videos).to.be.a('array');
     });
   });
 
-  it('should have an onClick function on isolate scope', function() {
+  it('should have an onClick function on the scope', function() {
     createVideoListElement({ onClick: function () {} }, function(element) {
       expect(element.isolateScope().ctrl.onClick).to.exist;
       expect(element.isolateScope().ctrl.onClick).to.be.a('function');
