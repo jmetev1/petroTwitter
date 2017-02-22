@@ -1,8 +1,11 @@
 angular.module('video-player')
 /* START SOLUTION */
 .controller('VideoPlayerController', function() {
-  this.videoUrl = function(videoId) {
-    return 'https://www.youtube.com/embed/' + videoId;
+  var self = this;
+  this.videoUrl = function() {
+    if (self.video) {
+      return 'https://www.youtube.com/embed/' + self.video.id.videoId;
+    }
   };
 })
 /* END SOLUTION */

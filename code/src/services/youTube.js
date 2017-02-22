@@ -18,10 +18,9 @@ angular.module('video-player')
       }
     })
     .catch(function(res) {
-      res.data.error.errors.forEach(function(err) { 
+      res.data.error.errors.forEach(function(err) {
         console.error(err.message);
-      }
-      );
+      });
     });
   };
 });
