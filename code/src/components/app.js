@@ -1,11 +1,11 @@
 angular.module('video-player')
 .controller('AppCtrl', function($window/* START SOLUTION */, youTube/* END SOLUTION */) {
-
+  /* START SOLUTION */
   this.videos = $window.exampleVideoData;
   this.currentVideo = this.videos[0];
 
-  /* START SOLUTION */
   var self = this;
+
   this.searchService = youTube;
   this.searchResults = function(data) {
     self.videos = data;
