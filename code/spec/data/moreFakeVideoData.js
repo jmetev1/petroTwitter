@@ -1,5 +1,5 @@
 // A simplified version of `exampleVideoData` to use for tests
-window.moreFakeVideoData = [{
+var moreFakeVideoData = [{
   etag: 'L332gQTY',
   id: {
     videoId: '000006'
@@ -38,34 +38,6 @@ window.moreFakeVideoData = [{
     thumbnails: {
       default: {
         url: 'http://www.coderstug.org/assets/images/section-past_events/discover-react.jpg',
-      }
-    }
-  }
-}, {
-  etag: 'Nj7xszf8',
-  id: {
-    videoId: '000009'
-  },
-  snippet: {
-    title: 'Backbone Broadcast',
-    description: 'Learn how to organize your spaghetti code with this MV* framework',
-    thumbnails: {
-      default: {
-        url: 'http://backbonejs.org/docs/images/backbone.png',
-      }
-    }
-  }
-}, {
-  etag: 'I2w-7nRI',
-  id: {
-    videoId: '000010'
-  },
-  snippet: {
-    title: 'Meteor Mashups',
-    description: 'Meteor takes the JavaScript world by storm!',
-    thumbnails: {
-      default: {
-        url: 'https://worldvectorlogo.com/logos/meteor-icon.svg',
       }
     }
   }

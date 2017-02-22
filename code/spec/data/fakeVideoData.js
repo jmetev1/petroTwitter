@@ -1,5 +1,5 @@
 // A simplified version of `exampleVideoData` to use for tests
-window.fakeVideoData = [{
+var fakeVideoData = [{
   etag: 'L332gQTY',
   id: {
     videoId: '000001'
