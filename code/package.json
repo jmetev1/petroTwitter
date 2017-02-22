@@ -1,7 +1,7 @@
 {
   "name": "ng-cast",
   "version": "1.0.0",
-  "description": "Re-making YouTube with Angular",
+  "description": "Re-making YouTube with AngularJS",
   "author": "Hack Reactor <curriculum.team@hackreactor.com>",
   "license": "UNLICENSED",
   "private": true,

@@ -1,7 +1,6 @@
 angular.module('video-player')
 .controller('AppCtrl', function($window/* START SOLUTION */, youTube/* END SOLUTION */) {
 
-  // TODO: what is the starting point for this sprint?
   this.videos = $window.exampleVideoData;
   this.currentVideo = this.videos[0];
 
