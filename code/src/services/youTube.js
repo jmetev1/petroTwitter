@@ -1,4 +1,4 @@
-angular.module('a-new-scope')
+angular.module('video-player')
 /* START SOLUTION */
 .service('youTube', function($http, $window) {
   this.search = function(query, callback) {

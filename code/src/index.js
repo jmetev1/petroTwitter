@@ -1,4 +1,4 @@
-angular.module('a-new-scope', [])
+angular.module('video-player', [])
 .config(function($sceDelegateProvider) {
   $sceDelegateProvider.resourceUrlWhitelist([
     'self',

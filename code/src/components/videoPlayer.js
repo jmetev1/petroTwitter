@@ -1,4 +1,4 @@
-angular.module('a-new-scope')
+angular.module('video-player')
 /* START SOLUTION */
 .controller('VideoPlayerController', function() {
   this.videoUrl = function(videoId) {

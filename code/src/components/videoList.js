@@ -1,4 +1,4 @@
-angular.module('a-new-scope')
+angular.module('video-player')
 .directive('videoList', function() {
   return {
     /* START SOLUTION */
