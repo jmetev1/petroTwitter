@@ -1,6 +1,6 @@
-# ng-cast
+# ng-cast: YouTube with AngularJS
 
-Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building the website using multiple technologies, before ultimately choosing the best one from several options. Your job is to build the the YouTube video broswer app using AngularJS. After completing the Bare Minimum Requirements, you'll be able to live-search, display, and play any video from YouTube.
+Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building the website using multiple technologies, before ultimately choosing the best one from several options. Your job is to build the the YouTube Video Player app using AngularJS. After completing the Bare Minimum Requirements, you'll be able to live-search, display, and play any video from YouTube.
 
 ![Video Player Demo](https://github.com/reactorcore/course.ng-cast/raw/master/assets/video-player.gif "Video Player Demo")
 
@@ -14,13 +14,13 @@ Your company's CTO is undecided about the most appropriate front-end framework t
 
 ## Thinking in Components
 
-When building front-end applications, one very good approach is to break apart the functionality of the application into small, easily understandable and reusable pieces. We often call these pieces *components*, and in Angular specifically, we call them *directives*. Angular directives are custom HTML elements with super powers. When composed together in just the right way, these components work in concert to accomplish the goals of the application you are building.
+When designing and building front-end applications, a good approach is to break apart the functionality of the application into small, easily understandable and reusable pieces. We often call these pieces *components*, and in Angular specifically, we typically build components using *directives* (specifically element directives). Angular's element directives are custom HTML elements with special powers. When composed together in just the right way, these components work in concert to accomplish the goals of the application you are building.
 
-The practice of teasing apart an application into small components lies somewhere in the spectrum between an art and a science. There are often several ways to accomplish the same goal, and the more artful approaches yield better quality code that is equally as simple. Through your own experiences -- both positive and negative -- you will develop skills to artfully navigate this terrain.
+The practice of teasing apart an application into small components lies somewhere in the spectrum between an art and a science. There are often several ways to accomplish the same goal, and more artful approaches tend to yield better quality code that is equally as simple to understand. Through your own experiences -- both positive and negative -- you will develop skills to artfully navigate this terrain.
 
-The specific extent of each component's super powers is another area that you will find challenging. With practice, you will learn how much power to give each element and be able to identify where to place code that implements those powers.
+The specific extent of each component's capabilities is another area that you will find challenging. With practice, you will learn how much capability to give each element and be able to identify where to place code that implements those capabilities.
 
-In this sprint, the decision about how to split the app into componenets has already been made for you. Each directive lives in its own file inside of the `src/components/` directory. During this sprint you will be building out these directives to correctly interact with each other and the YouTube Data API. Here's how they are organized:
+In this sprint, the decision about how to split the app into componenets has already been made for you. Each directive lives in its own file inside of the `src/components` directory. During this sprint you will be building out these directives to correctly interact with each other and the YouTube data API. Here's how they are organized:
 
 ![Video Player component layout](https://github.com/reactorcore/course.ng-cast/raw/master/assets/components.png "Video Player component layout")
 
@@ -28,7 +28,9 @@ In this sprint, the decision about how to split the app into componenets has alr
 * `search` - Responsible for knowing and communicating information about the search input field
 * `videoPlayer` - Responsible for playing a single video and displaying information about it
 * `videoList` - A container component responsible for populating video list entry components
-* `videoListEntry` - A component that shows a thumbnail view for a single video. When the title of this video is clicked, that video will be shown in the `VideoPlayer` component
+* `videoListEntry` - A component that shows a thumbnail view for a single video. When the title of this video is clicked, that video will be shown in the `videoPlayer` component
+
+Notice that HTML for these components is not present within the file that defines a directive. HTML is stored in the `src/templates` folder. The names of the template files are named to match their corresponding directives.
 
 ## Project set up
 
@@ -59,7 +61,7 @@ npm install -g live-server
 
 Try it out:
 
-- [ ] In a new Terminal tab, start the Recast.ly app by running `live-server`
+- [ ] In a new Terminal tab, start the Video Player app by running `live-server`
 - [ ] Make a change in one of the JavaScript files in the `src/` directory
 - [ ] Be amazed as your browser should magically refresh with the compiled changes
 
@@ -71,41 +73,49 @@ npm comes with a handy [scripting](https://docs.npmjs.com/misc/scripts) feature 
 
 - [ ] Write an npm `start` script that combines the previous two build steps together
 
+### Testing with Karma
+
+Angular recommends the use of [Karma](https://docs.angularjs.org/guide/unit-testing) for testing. Karma runs tests by opening a browser window. Much like `live-server`, Karma watches for changes to your code and re-runs the tests automatically. Additionally, Karma provides a debug interface right from the test page!
+
 ## Bare Minimum Requirements
 
-- [ ] Inside of `src/index.js`, render the `App` component to the DOM and explore the codebase to get an understanding of each component's responsibility
-- [ ] Read [this guide](http://busypeoples.github.io/post/thinking-in-components-angular-js/) to learn more about thinking in components with AngularJS.
+- [ ] Explore the codebase to get an understanding of each component's responsibility
+- [ ] Inside of `src/components/app.js`, write the directive code that will render this component to the DOM.
 
 ### Create a dynamic Video List component
 
-When building out front-end applications, it can be productive to temporarily ignore the complexity of working with real data, and mock out "fake" data instead. [**Stateless functional components**](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components) make this easy because they render the same with "real" data from a live API or "fake" data from a file.
+When building out front-end applications, a hightly productive technique is to temporarily ignore the complexity of working with real data (via an API) by making use of "mocked" sample data. You're going to use the sample data in `src/data/exampleVideoData.js` to build out the `videoList` and `videoListEntry` components.
 
-You're going to use the sample data in `src/data/exampleVideoData.js` to build out the stateless functional `VideoList` and `VideoListEntry` components.
+- [ ] Include `src/data/exampleVideoData.js` in `index.html` so it can be used by your application
+- [ ] Pass the data from `exampleVideoData` into the `videoList` component
+- [ ] Refactor the `videoList` component to dynamically render one `videoListEntry` component for each video object in `exampleVideoData`, passing in the video data to `videoListEntry`
+- [ ] Refactor the `videoListEntry` component to dynamically render based on the video object it receives
+- [ ] Resolve the issue show in the console: `GET <funny-looking-url> 404 (Not Found)`
+- [ ] Make sure the tests for `videoList` and `videoListEntry` are passing. You can open the tests with `npm test`
 
-- [ ] Include `src/data/exampleVideoData.js` in `index.html` so it can be used by your React components
-- [ ] Pass `exampleVideoData` into the `VideoList` component
-- [ ] Refactor the `VideoList` component to dynamically render one `VideoListEntry` component for each video object in `exampleVideoData`
-- [ ] Refactor the `VideoListEntry` component to dynamically render based on the video object it receives
-- [ ] Make sure the tests for `VideoList` and `VideoListEntry` are passing. You can open the tests with `npm test`
+When it's all set up, you should see the titles, thumbnails, and descriptions of some Angular Tutorials on the page. However, you might notice that your app appears to be working correctly but your tests are not passing. If you made use of `$scope` in your controller you are making use of an antiquated AngularJS design pattern.
 
-When it's all set up, you should see the titles, thumbnails, and descriptions of some React Tutorials on the page. If you notice a *Warning* in the console about a "unique 'key' prop", know that this has to do with [React's performance](https://facebook.github.io/react/docs/multiple-components.html#dynamic-children), but you can ignore it if you wish.
+Angular strongly recommends the use of `controllerAs` along with `bindToController` when building directives. This technique allows you to reference the scope from with your view templates explicitly, using the name you supply, instead of the commonly misused "implied binding" technique (which is often viewed as mysterious). You can read [this guide](http://busypeoples.github.io/post/thinking-in-components-angular-js/) to learn more about `controllerAs` and why this is the preferred syntax.
+
+- [ ] Modify your directive to make use of the `controllerAs` syntax. In order to pass test, you must call your scope variable `ctrl`. If you are unable to make this work, you may optionally remove the reference to `ctrl` from the tests.
 
 ### Create a dynamic Video Player component
 
-Videos are played by passing a source url to the `iframe` tag inside the `VideoPlayer` component. The video associated with the id included after `https://www.youtube.com/embed/` will get played. Because this is also a stateless functional component, we can build it out with our example data.
+Videos are played by passing a source url to the `iframe` tag inside the `videoPlayer` component. The video associated with the id included after `https://www.youtube.com/embed/` will get played.
 
-- [ ] Pass a single video from `exampleVideoData` into `VideoPlayer`
-- [ ] Update `VideoPlayer` to play the video it is passed and display its title and descriptions
-- [ ] Make sure the tests for `VideoPlayer` are passing. You can open the tests with `npm test`
+- [ ] Pass a single video from `exampleVideoData` into `videoPlayer`
+- [ ] Update `videoPlayer` to play the video it is passed and display its title and descriptions
+- [ ] Make sure the tests for `videoPlayer` are passing. You can open the tests with `npm test`
+- [ ] Continue to use the `controllerAs` syntax for all directives. Refactor to `controllerAs` if you did not initially implement your `videoPlayer` in this way.
 
 ### Hook together the Video List and Video Player components
 
-Now it's time to make the stateless functional components interact. In React, sibling components can not directly access each other, so they need the help of a parent component to manage communication between them. In this case, `App` is the parent component for the sibling components `VideoList` and `VideoPlayer`.
+Now it's time to make these two components interact. In most MVC architectures, sibling components should not directly access each other, so they need the help of a parent component to manage communication between them. In this case, `app` is the parent component for the sibling components `videoList` and `videoPlayer`.
 
-- [ ] Refactor `App` into a [class component](https://facebook.github.io/react/docs/reusable-components.html#es6-classes) using ES6 classes
-- [ ] Initialize the `state` of `App` to keep track of all the videos in the video list and the current video in the player. Pass this `state` down as props to its children components. Continue to use the example data.
-- [ ] Make it so that when the title of a `VideoListEntry` is clicked, that video is displayed in the player. **Do not** add `state` to any of the functional components.
-- [ ] Make sure all the active tests for `App` are passing. You can open the tests with `npm test`
+- [ ] Initialize the internal state of `app` to keep track of all the videos in the video list and the current video in the player. Pass this information down to its children components, `videoList` and `videoPlayer`. Continue to use the example data.
+- [ ] Devise a way to receive the result of a click event inside of a `videoListEntry` so that when a title is clicked, that video is displayed in the player.
+- [ ] Make sure all the active tests for `app` are passing. You can open the tests with `npm test`
+- [ ] Continue to use the `controllerAs` syntax for all directives. Refactor to `controllerAs` if you did not initially implement your `app` in this way.
 
 ### Set up interactions with the YouTube API
 
@@ -120,49 +130,62 @@ You'll need a developer key in order to access videos from the YouTube Data API.
 
 ### Create a reusable API helper
 
-To search for YouTube videos, you'll use the API's [Search:list](https://developers.google.com/youtube/v3/docs/search/list) endpoint. To help keep your code organized, write a helper function that is solely responsible for interacting with this endpoint. In `lib/searchYouTube.js` fill out the `searchYouTube` function. It should:
+To search for YouTube videos, you'll use the API's [Search:list](https://developers.google.com/youtube/v3/docs/search/list) endpoint. To help keep your code organized, write a helper function that is solely responsible for interacting with this endpoint.
 
-- [ ] Use jQuery to send a `GET` request to the search endpoint. **This is the only time you should use jQuery in this sprint**
+- [ ] In `lib/youTube.js`, create an Angular service to fetch data from YouTube's API.
+- [ ] Use the Angular provider `$http` to send a `GET` request to the search endpoint. **You should never use jQuery in this sprint**
 - [ ] Accept a `callback` function that is invoked with the videos array that is returned from hitting the endpoint
-- [ ] Accept an `options` object with the following properties:
+- [ ] The `$http` provider should receive a `params` object with the following properties:
   - [ ] `query` - the string to search for
-  - [ ] `max` - the maximum number of videos to get, which should default to 5
+  - [ ] `maxResults` - the maximum number of videos to get, which should default to 5
   - [ ] `key` - an authorized YouTube Browser API key
-- [ ] Only `GET` embeddable videos
-- [ ] Make sure all the tests for `searchYouTube` are passing. You can open the tests with `npm test`
+  - [ ] Only fetch embeddable videos
+
+### Implement Simple Search
+
+Incorporate the `search` component into the application. Searching will execute when the user clicks on the search button icon.
+
+- [ ] Implement the `search` directive, making use of the YouTube service you just created.
+- [ ] Devise a way to `app` to receive the result of performing a search operation whenever a user clicks on the button. Update all other views as a result of this operation.
 
 ### Initialize the app with live data
 
 Before integrating live data, you should take a minute to appreciate how far you got with the `exampleVideoData`. Now you can tackle the complexity of starting to use actual data in isolation, and assuming the shape of the live data is the same as the data you mocked out, everything will continue working. If you made your helper correctly, this following section should be simple.
 
-- [ ] As you've done with other modules, make `searchYouTube` available for consumption and pass it as a prop to your app
-- [ ] Replace `exampleVideoData` from the initial `state` of `App` with empty initial values, appropriate to the type of values it is expecting
-- [ ] Utilize the [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount) lifecycle hook to render your app with live videos returned from `searchYouTube`
-- [ ] Remove the `x` from the pending tests in `AppSpec.jsx`, and make sure all the `App` tests are passing. You can open the tests with `npm test`
-
-### Implement live-search
-
-Build out `Search` and update other components:
-
-- [ ] As a user types into the input box, the `VideoList` and `VideoPlayer` components are updated with videos from the YouTube data API that match the value of the input
-- [ ] Debounce ajax requests triggered by the `Search` component to occur *at most* once every 500ms. (Imagine if YouTube's API wasn't free :O)
-- [ ] Make sure all the tests for `Search` are passing. You can open the tests with `npm test`
+- [ ] As you've done with other modules, make `youTube` available for consumption by your `app` component
+- [ ] Replace `exampleVideoData` during the initialization of `app` with empty initial values, appropriate to the type of values it is expecting
+- [ ] Invoke the `search` function and update the state of the app with videos returned from the `youTube` service
 
 ## Advanced Content
 
+### Implement live-search
+
+Build out `search` and update other components:
+
+- [ ] As a user types into the input box, the `videoList` and `videoPlayer` components are updated with videos from the YouTube data API that match the value of the input
+- [ ] Debounce ajax requests triggered by the `search` component to occur *at most* once every 500ms. (Imagine if YouTube's API wasn't free :O)
+
+## Code Cleanup
+
+Make better use of Angular's dependency injection.
+
+- [ ] Inline functions are difficult to test. If you used a controller function in any of your directives, refactor those directive so the controller functions are instantiated by Angular on an as needed.
+- [ ] If you made use of the `youTube` service inside your `search` component, you have made your component very specific to one specific provider of content. Devise a way for your `search` component to receive it's provider from its parent component instead. Refactor as needed.
+
+## More Advanced Content
+
 Our advanced content is intended to throw you in over your head, requiring you to solve problems with very little support or oversight, much like you would as a mid or senior level engineer. The following problem is no exception, and you may have to do a fair amount of work to get enough context to get started on the problem itself.
 
-- [ ] Create a `VideoDetails` component that makes another request to the YouTube API and renders more complete video information to the page
-- [ ] Create an auto-play toggle button that will automatically start playing the video selected from `VideoList`
-- [ ] Give each video it's own unique url with the help of [React Router](https://github.com/reactjs/react-router)
+- [ ] Create a `videoDetails` component that makes another request to the YouTube API and renders more complete video information to the page
+- [ ] Create an auto-play toggle button that will automatically start playing the video selected from `videoList`
+- [ ] Give each video it's own unique url with the help of [Angular Router](https://docs.angularjs.org/api/ngRoute)
 - [ ] Refactor `searchYouTube` to use the [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function to make HTTP requests, instead of `$.ajax`
-- [ ] Refactor your application to use flux. [Redux](http://redux.js.org/) is a popular implementation of flux you might consider
-- [ ] Use a module loader like [webpack](https://webpack.github.io/), or [SystemJS](https://github.com/systemjs/systemjs) and refactor to use ES6 `import` and `export` instead of exposing components to the `window` and adding them as `script` tags
+- [ ] Use a module loader like [webpack](https://webpack.github.io/), or [SystemJS](https://github.com/systemjs/systemjs) instead of adding modules as `script` tags
 
 ## Resources
 
-* The [Babel REPL](http://babeljs.io/repl/) shows you a ES5 representation of ES6/JSX code
-
-* [Facebook's React Tutorial](https://facebook.github.io/react/docs/tutorial.html)
+* [Angular Directives](https://docs.angularjs.org/guide/directive)
+* [Google's Angular Tutorial](https://docs.angularjs.org/tutorial)
+* [Component Based Thinking in AngularJS](http://busypeoples.github.io/post/thinking-in-components-angular-js/)
 * [YouTube API](https://developers.google.com/youtube/v3/getting-started)
 * [The AngularJS Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
