@@ -12,13 +12,13 @@ angular.module('video-player')
         videoEmbeddable: 'true'
       }
     })
-    .then(function(res) {
+    .then(function({data}) {
       if (callback) {
-        callback(res.data.items);
+        callback(data.items);
       }
     })
-    .catch(function(res) {
-      res.data.error.errors.forEach(function(err) {
+    .catch(function({data}) {
+      data.error.errors.forEach(function(err) {
         console.error(err.message);
       });
     });

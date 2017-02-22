@@ -1,11 +1,8 @@
 angular.module('video-player')
 /* START SOLUTION */
 .controller('VideoPlayerController', function() {
-  var self = this;
-  this.videoUrl = function() {
-    if (self.video) {
-      return 'https://www.youtube.com/embed/' + self.video.id.videoId;
-    }
+  this.videoUrl = () => {
+    return this.video ? `https://www.youtube.com/embed/${this.video.id.videoId}` : '';
   };
 })
 /* END SOLUTION */

@@ -1,10 +1,9 @@
 angular.module('video-player')
 /* START SOLUTION */
 .controller('SearchController', function() {
-  var context = this;
-  this.handleClick = function() {
-    context.service.search(context.input, function(data) {
-      context.result(data);
+  this.handleClick = () => {
+    this.service.search(this.input, (data) => {
+      this.result(data);
     });
   };
 })
