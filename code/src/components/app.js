@@ -1,6 +1,7 @@
 angular.module('video-player')
-.controller('AppCtrl', function($window/* START SOLUTION */, youTube/* END SOLUTION */) {
-  /* START SOLUTION */
+/* START SOLUTION */
+.controller('AppCtrl', function($window, youTube) {
+
   this.videos = $window.exampleVideoData;
   this.currentVideo = this.videos[0];
 
@@ -15,8 +16,8 @@ angular.module('video-player')
   this.selectVideo = function(video) {
     self.currentVideo = video;
   };
-  /* END SOLUTION */
 })
+/* END SOLUTION */
 .directive('app', function() {
   return {
     /* START SOLUTION */
