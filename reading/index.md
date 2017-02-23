@@ -1,28 +1,28 @@
 # ng-cast: YouTube with AngularJS
 
-In this sprint, you are going to work with another front-end framework, rebuilding the YouTube Video Player app, this time using AngularJS.
+In this sprint you are going to work with another front-end framework. Your task is to rebuild the YouTube Video Player app using AngularJS.
 
-**Typical Real-Life Scenario:** Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building a website using multiple technologies, before ultimately choosing the best one from several options.
+**Typical Real-Life Scenario:** Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building a website using multiple technologies before ultimately choosing the best one.
 
-## AngularJS is interesting in a few key ways:
+## AngularJS is Interesting in a Few Key Ways
 
-- AngularJS uses a mix of standard and custom HTML elements and attributes that transforms standard HTML into HTML with super powers.
-- In AngularJS, developers don't have to think about when to re-render and how to extract values from the DOM (for example, a developer does not need to query an input element to obtain its current value).
-- AngularJS improves code quality and modularity because your modules never directly reference external dependencies. Rather, AngularJS supplies dependencies to your modules in a way that decouples your code from any other code.
+- AngularJS uses a mix of standard and custom HTML elements and attributes that transforms standard HTML into HTML with superpowers.
+- When using AngularJS, developers don't have to think about when to re-render or how to extract values from the DOM (for example, a developer does not need to query an input element to obtain its current value).
+- AngularJS improves code quality and modularity because your modules never directly reference external dependencies. More precisely, AngularJS supplies dependencies to your modules in a way that decouples your code from any other code.
 
-## High Level Goals of this Sprint
+## High-Level Goals of This Sprint
 
 * Continue learning how to think about web apps as components
 * Develop an understanding of the differences between AngularJS and React, and an opinion on how each framework's strengths might be useful in future projects
-* Continue to gain exposure interacting with a REST API (in this case, the [YouTube Data API](https://developers.google.com/youtube/v3/?hl=en))
+* Continue to gain exposure to interacting with a REST API (in this case, the [YouTube Data API](https://developers.google.com/youtube/v3/?hl=en))
 
 ## Thinking in Components
 
-When designing and building front-end applications, a good approach is to break apart the functionality of the application into small, easily understandable and reusable pieces, often called *components*. In many ways AngularJS is similarl to React, by using custom html elements as a way to define components.
+When designing and building front-end applications, a good approach is to break the functionality of the application apart into small, easily understandable and reusable pieces, often called *components*. In many ways AngularJS is similar to React in that it uses custom HTML elements as a way to define components.
 
 The constuct used to create components in Angular is called a *directive* (there are several types of directives, components are created using element directives). Angular's element directives are custom HTML elements with special powers. When composed together in just the right way, these components work in concert to accomplish the goals of the application you are building.
 
-The practice of teasing apart an application into small components lies somewhere in the spectrum between an art and a science. There are often several ways to accomplish the same goal, and more artful approaches tend to yield better quality code that is equally as simple to understand. Through your own experiences -- both positive and negative -- you will develop skills to artfully navigate this terrain.
+The practice of teasing apart an application into small components lies somewhere in the spectrum between an art and a science. There are often several ways to accomplish the same goal and more artful approaches tend to yield better quality code that is equally simple to understand. Through your own experiences -- both positive and negative -- you will develop skills to artfully navigate this terrain.
 
 The specific extent of each component's capabilities is another area that you will find challenging. With practice, you will learn how much capability to give each element and be able to identify where to place code that implements those capabilities.
 
@@ -38,11 +38,11 @@ In this sprint, the decision about how to split the app into componenets has alr
 
 Notice that HTML for these components is not present within the file that defines a directive. HTML is stored in the `src/templates` folder. The names of the template files are named to match their corresponding directives.
 
-## Project set up
+## Project Set Up
 
 ### npm
 
-This sprint uses [npm](https://www.npmjs.com/) to manage its dependencies. npm comes bundled with Node, and is another JavaScript package manager that makes it easy for developers to share and reuse code. Even though npm started in the Node ecosystem, it is quickly becoming the default choice for sharing all types of JavaScript code.
+This sprint uses [npm](https://www.npmjs.com/) to manage its dependencies. npm comes bundled with Node and is another JavaScript package manager that makes it easy for developers to share and reuse code. Even though npm started in the Node ecosystem, it is quickly becoming the default choice for sharing all types of JavaScript code.
 
 If you're comfortable with other package managers such as Bower, you will feel right at home with npm:
 
@@ -55,9 +55,9 @@ Install this sprint's dependencies:
 - [ ] [Install Node.js](https://nodejs.org/en/) if you haven't yet.
 - [ ] Run `npm install`
 
-### Live reloading server
+### Live-Reloading Server
 
-In order to boost productivity when developing rich client side applications, this sprint uses a live development server to automatically refresh the browser page as you make changes to your source code.
+In order to boost productivity when developing rich client-side applications, this sprint uses a live development server to automatically refresh the browser page as you make changes to your source code.
 
 Install [Live Server](https://github.com/tapio/live-server) from npm:
 
@@ -71,9 +71,9 @@ Try it out:
 - [ ] Make a change in one of the JavaScript files in the `src/` directory
 - [ ] Be amazed as your browser should magically refresh with the compiled changes
 
-*We'll be covering servers later in extensive detail. For now you can just run this command and ignore the complexity of what it means or how it works.*
+*We'll be covering servers  in extensive detail later. For now you can just run this command and ignore the complexity of what it means or how it works.*
 
-### npm scripts
+### npm Scripts
 
 npm comes with a handy [scripting](https://docs.npmjs.com/misc/scripts) feature that lets you define shell commands inside of `package.json`. If you want to improve your application's build process, consider completing the following optional task:
 
@@ -100,7 +100,7 @@ When building out front-end applications, a hightly productive technique is to t
 
 - [ ] Include `src/data/exampleVideoData.js` in `index.html` so it can be used by your application
 
-### Create a dynamic Video List component
+### Create a Dynamic Video List Component
 
 Your first goal is to build the `videoList` component and its partner component, `videoListEntry`, that together render whatever list of videos is supplied to them. When it's all set up, you should see the titles, thumbnails, and descriptions of some Angular Tutorials on the page.
 
@@ -114,11 +114,11 @@ At this point you might notice that your app appears to be working correctly but
 
 AngularJS strongly recommends the use of `controllerAs` along with `bindToController` when building directives. This technique allows you to reference the scope from with your view templates explicitly, using the name you supply, instead of the commonly misused "implied binding" technique (which is often viewed as mysterious). You can read [this guide](http://busypeoples.github.io/post/thinking-in-components-angular-js/) to learn more about `controllerAs` and why this is the preferred syntax.
 
-- [ ] Modify your directive to make use of the `controllerAs` syntax. In order to pass test, you must call your scope variable `ctrl`. If you are unable to make this work, you may optionally remove the reference to `ctrl` from the tests.
+- [ ] Modify your directive to make use of the `controllerAs` syntax. In order to pass the tests, you must call your scope variable `ctrl`. If you are unable to make this work, you may optionally remove the reference to `ctrl` from the tests.
 
-### Create a dynamic Video Player component
+### Create a Dynamic Video Player Component
 
-Next do the same thing with the `videoPlayer` component, that is, have the component render whatever video is supplied to it.
+Next, do the same thing with the `videoPlayer` component, i.e., have the component render whatever video is supplied to it.
 
 YouTube videos are played by passing a source url to the `iframe` tag inside the `videoPlayer` component. The video associated with the id included after `https://www.youtube.com/embed/` will get played.
 
@@ -127,7 +127,7 @@ YouTube videos are played by passing a source url to the `iframe` tag inside the
 - [ ] Continue to use the `controllerAs` syntax for all directives. Refactor to `controllerAs` if you did not initially implement your `videoPlayer` in this way.
 - [ ] Make sure the tests for `videoPlayer` are passing. You can open the tests with `npm test`
 
-### Hook together the Video List and Video Player components
+### Hook the Video List and Video Player Components Together
 
 Now it's time to make these two components interact. When you are finished with this section, the `videoList` component will be interactive, meaning that when you click on a video title, that video will be shown in the `videoPlayer` component.
 
@@ -138,9 +138,9 @@ In most MVC architectures, sibling components should not directly access each ot
 - [ ] Make sure all the tests for `app` are passing. You can open the tests with `npm test`
 - [ ] Continue to use the `controllerAs` syntax for all directives. Refactor to `controllerAs` if you did not initially implement your `app` in this way.
 
-### Set up interactions with the YouTube API
+### Set Up Interactions with the YouTube API
 
-You'll need a developer key in order to access videos from the YouTube Data API. This is common practice with third party APIs because they want to keep track of who is accessing their data, enforce rate limits, and even sometimes make money. Access to the YouTube API is free, all you need is a Google Account.
+You'll need a developer key in order to access videos from the YouTube Data API. This is common practice with third party APIs because they want to keep track of who is accessing their data, enforce rate limits and even sometimes make money. Access to the YouTube API is free, all you need is a Google Account.
 
 - [ ] Go to Google's [YouTube API](https://console.developers.google.com/apis/api/youtube/overview)
 - [ ] If prompted, select a project or create a new one. It doesn't matter what you name a new project
@@ -149,7 +149,7 @@ You'll need a developer key in order to access videos from the YouTube Data API.
 - [ ] Give your key any name, leave the optional field blank, and click `Create`.
 - [ ] Make your key available to the rest of your application from a new file, `src/config/youtube.js`
 
-### Create a reusable API helper
+### Create a Reusable API Helper
 
 It is common to encapsulate code that performs a specific API action into its own module. Upon completion of this step, you will have a reusable service for making queries to the YouTube API.
 
@@ -171,7 +171,7 @@ Incorporate the `search` component into the application. After completing this s
 - [ ] Implement the `search` directive, making use of the YouTube service you just created.
 - [ ] Devise a way to `app` to receive the result of performing a search operation whenever a user clicks on the button. Update all other views as a result of this operation.
 
-### Initialize the app with live data
+### Initialize the App With Live Data
 
 The last step will be to replace your mocked data with live data. To do this, the app should initialize itself by executing a "default" search and populating its components with the results of this search.
 
@@ -183,7 +183,7 @@ Before integrating live data, you should take a minute to appreciate how far you
 
 ## Advanced Content
 
-### Implement live-search
+### Implement Live Search
 
 Build out `search` and update other components:
 
@@ -199,7 +199,7 @@ Make better use of Angular's dependency injection.
 
 ## More Advanced Content
 
-Our advanced content is intended to throw you in over your head, requiring you to solve problems with very little support or oversight, much like you would as a mid or senior level engineer. The following problem is no exception, and you may have to do a fair amount of work to get enough context to get started on the problem itself.
+Our advanced content is intended to throw you in over your head, requiring you to solve problems with very little support or oversight, much like you would as a mid or senior-level engineer. The following problem is no exception, and you may have to do a fair amount of work to get enough context to get started on the problem itself.
 
 - [ ] Create a `videoDetails` component that makes another request to the YouTube API and renders more complete video information to the page
 - [ ] Create an auto-play toggle button that will automatically start playing the video selected from `videoList`
