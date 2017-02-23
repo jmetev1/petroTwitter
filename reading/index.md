@@ -1,20 +1,26 @@
 # ng-cast: YouTube with AngularJS
 
-Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building the website using multiple technologies, before ultimately choosing the best one from several options. Your job is to build the the YouTube Video Player app using AngularJS. After completing the Bare Minimum Requirements, you'll be able to search, display, and play any video from YouTube.
+In this sprint, you are going to work with another front-end framework, rebuilding the YouTube Video Player app, this time using AngularJS.
 
-![Video Player Demo](https://s3-us-west-2.amazonaws.com/sprint.content/course.ng-cast/video-player.gif "Video Player Demo")
+**Typical Real-Life Scenario:** Your company's CTO is undecided about the most appropriate front-end framework to use and wants to explore building a website using multiple technologies, before ultimately choosing the best one from several options.
+
+## AngularJS is interesting in a few key ways:
+
+- AngularJS uses a mix of standard and custom HTML elements and attributes that transforms standard HTML into HTML with super powers.
+- In AngularJS, developers don't have to think about when to re-render and how to extract values from the DOM (for example, a developer does not need to query an input element to obtain its current value).
+- AngularJS improves code quality and modularity because your modules never directly reference external dependencies. Rather, AngularJS supplies dependencies to your modules in a way that decouples your code from any other code.
 
 ## High Level Goals of this Sprint
 
-* Understand the importance, and experience the benefits of client side libraries by way of building with AngularJS
 * Continue learning how to think about web apps as components
-* Understand how the differences between AngularJS and React how each framework's strength might be used in future projects
+* Develop an understanding of the differences between AngularJS and React, and an opinion on how each framework's strengths might be useful in future projects
 * Continue to gain exposure interacting with a REST API (in this case, the [YouTube Data API](https://developers.google.com/youtube/v3/?hl=en))
-
 
 ## Thinking in Components
 
-When designing and building front-end applications, a good approach is to break apart the functionality of the application into small, easily understandable and reusable pieces. We often call these pieces *components*, and in Angular specifically, we typically build components using *directives* (specifically element directives). Angular's element directives are custom HTML elements with special powers. When composed together in just the right way, these components work in concert to accomplish the goals of the application you are building.
+When designing and building front-end applications, a good approach is to break apart the functionality of the application into small, easily understandable and reusable pieces, often called *components*. In many ways AngularJS is similarl to React, by using custom html elements as a way to define components.
+
+The constuct used to create component in Angular is called a *directive* (there are several types of directives, components are created using element directives). Angular's element directives are custom HTML elements with special powers. When composed together in just the right way, these components work in concert to accomplish the goals of the application you are building.
 
 The practice of teasing apart an application into small components lies somewhere in the spectrum between an art and a science. There are often several ways to accomplish the same goal, and more artful approaches tend to yield better quality code that is equally as simple to understand. Through your own experiences -- both positive and negative -- you will develop skills to artfully navigate this terrain.
 
@@ -71,20 +77,28 @@ Try it out:
 
 npm comes with a handy [scripting](https://docs.npmjs.com/misc/scripts) feature that lets you define shell commands inside of `package.json`. If you want to improve your application's build process, consider completing the following optional task:
 
-- [ ] Write an npm `start` script that combines the previous two build steps together
+- [ ] Write an npm `start` script that runs the instructions from the previous step
 
 ### Testing with Karma
 
-Angular recommends the use of [Karma](https://docs.angularjs.org/guide/unit-testing) for testing. Karma runs tests by opening a browser window. Much like `live-server`, Karma watches for changes to your code and re-runs the tests automatically. Additionally, Karma provides a debug interface right from the test page!
+Angular recommends the use of [Karma](https://docs.angularjs.org/guide/unit-testing) for testing. Karma runs tests by opening a browser window. Much like `live-server`, Karma watches for changes to your code and re-runs the tests automatically. Additionally, Karma provides a debug interface right from the test page! Like in previous sprints, use `npm test` to run tests.
 
 ## Bare Minimum Requirements
 
-- [ ] Explore the codebase to get an understanding of each component's responsibility
+Your ultimate goal is to build a working app that looks like the one in the animated gif below, using the included tests as your guide. After completing the Bare Minimum Requirements, you'll be able to search, display, and play any video from YouTube.
+
+![Video Player Demo](https://s3-us-west-2.amazonaws.com/sprint.content/course.ng-cast/video-player.gif "Video Player Demo")
+
+### Initial Steps
+
+- [ ] Explore the codebase to get an understanding of each component's responsibility. Relate the code you see to the previous diagram and ensure you understand how the components relate to each other. An essential aspect of this first step is to understand the HTML for each component too.
 - [ ] Inside of `src/components/app.js`, write the directive code that will render this component to the DOM.
+
+When building out front-end applications, a hightly productive technique is to temporarily ignore the complexity of working with real data (via an API) by making use of "mocked" sample data. For the next several steps, you're going to use the sample data contained in `src/data/exampleVideoData.js`.
 
 ### Create a dynamic Video List component
 
-When building out front-end applications, a hightly productive technique is to temporarily ignore the complexity of working with real data (via an API) by making use of "mocked" sample data. You're going to use the sample data in `src/data/exampleVideoData.js` to build out the `videoList` and `videoListEntry` components.
+Your first goal is to build the `videoList` component and its partner component, `videoListEntry`, that together render whatever list of videos is supplied to them. When it's all set up, you should see the titles, thumbnails, and descriptions of some Angular Tutorials on the page.
 
 - [ ] Include `src/data/exampleVideoData.js` in `index.html` so it can be used by your application
 - [ ] Pass the data from `exampleVideoData` into the `videoList` component
@@ -93,28 +107,32 @@ When building out front-end applications, a hightly productive technique is to t
 - [ ] Resolve the issue show in the console: `GET <funny-looking-url> 404 (Not Found)`
 - [ ] Make sure the tests for `videoList` and `videoListEntry` are passing. You can open the tests with `npm test`
 
-When it's all set up, you should see the titles, thumbnails, and descriptions of some Angular Tutorials on the page. However, you might notice that your app appears to be working correctly but your tests are not passing. If you made use of `$scope` in your controller you are making use of an antiquated AngularJS design pattern.
+At this point you might notice that your app appears to be working correctly but you might be having a hard time getting your tests to pass. If you made use of `$scope` in your controller you are making use of an outdated AngularJS design pattern.
 
-Angular strongly recommends the use of `controllerAs` along with `bindToController` when building directives. This technique allows you to reference the scope from with your view templates explicitly, using the name you supply, instead of the commonly misused "implied binding" technique (which is often viewed as mysterious). You can read [this guide](http://busypeoples.github.io/post/thinking-in-components-angular-js/) to learn more about `controllerAs` and why this is the preferred syntax.
+AngularJS strongly recommends the use of `controllerAs` along with `bindToController` when building directives. This technique allows you to reference the scope from with your view templates explicitly, using the name you supply, instead of the commonly misused "implied binding" technique (which is often viewed as mysterious). You can read [this guide](http://busypeoples.github.io/post/thinking-in-components-angular-js/) to learn more about `controllerAs` and why this is the preferred syntax.
 
 - [ ] Modify your directive to make use of the `controllerAs` syntax. In order to pass test, you must call your scope variable `ctrl`. If you are unable to make this work, you may optionally remove the reference to `ctrl` from the tests.
 
 ### Create a dynamic Video Player component
 
-Videos are played by passing a source url to the `iframe` tag inside the `videoPlayer` component. The video associated with the id included after `https://www.youtube.com/embed/` will get played.
+Next do the same thing with the `videoPlayer` component, that is, have the component render whatever video is supplied to it.
+
+YouTube videos are played by passing a source url to the `iframe` tag inside the `videoPlayer` component. The video associated with the id included after `https://www.youtube.com/embed/` will get played.
 
 - [ ] Pass a single video from `exampleVideoData` into `videoPlayer`
 - [ ] Update `videoPlayer` to play the video it is passed and display its title and descriptions
-- [ ] Make sure the tests for `videoPlayer` are passing. You can open the tests with `npm test`
 - [ ] Continue to use the `controllerAs` syntax for all directives. Refactor to `controllerAs` if you did not initially implement your `videoPlayer` in this way.
+- [ ] Make sure the tests for `videoPlayer` are passing. You can open the tests with `npm test`
 
 ### Hook together the Video List and Video Player components
 
-Now it's time to make these two components interact. In most MVC architectures, sibling components should not directly access each other, so they need the help of a parent component to manage communication between them. In this case, `app` is the parent component for the sibling components `videoList` and `videoPlayer`.
+Now it's time to make these two components interact. When you are finished with this section, the `videoList` component will be interactive, meaning that when you click on a video title, that video will be shown in the `videoPlayer` component.
+
+In most MVC architectures, sibling components should not directly access each other, so they need the help of a parent component to manage communication between them. In this case, `app` is the parent component for the sibling components `videoList` and `videoPlayer`.
 
 - [ ] Initialize the internal state of `app` to keep track of all the videos in the video list and the current video in the player. Pass this information down to its children components, `videoList` and `videoPlayer`. Continue to use the example data.
 - [ ] Devise a way to receive the result of a click event inside of a `videoListEntry` so that when a title is clicked, that video is displayed in the player.
-- [ ] Make sure all the active tests for `app` are passing. You can open the tests with `npm test`
+- [ ] Make sure all the tests for `app` are passing. You can open the tests with `npm test`
 - [ ] Continue to use the `controllerAs` syntax for all directives. Refactor to `controllerAs` if you did not initially implement your `app` in this way.
 
 ### Set up interactions with the YouTube API
@@ -130,6 +148,8 @@ You'll need a developer key in order to access videos from the YouTube Data API.
 
 ### Create a reusable API helper
 
+It is common to encapsulate code that performs a specific API action into its own module. Upon completion of this step, you will have a reusable service for making queries to the YouTube API.
+
 To search for YouTube videos, you'll use the API's [Search:list](https://developers.google.com/youtube/v3/docs/search/list) endpoint. To help keep your code organized, write a helper function that is solely responsible for interacting with this endpoint.
 
 - [ ] In `lib/youTube.js`, create an Angular service to fetch data from YouTube's API.
@@ -143,14 +163,16 @@ To search for YouTube videos, you'll use the API's [Search:list](https://develop
 
 ### Implement Simple Search
 
-Incorporate the `search` component into the application. Searching will execute when the user clicks on the search button icon.
+Incorporate the `search` component into the application. After completing this step, the app will be capable of accepting a phrase in the input field and when the user clicks on the search button, the various components will update appropriately with the results obtianed from the YouTube API.
 
 - [ ] Implement the `search` directive, making use of the YouTube service you just created.
 - [ ] Devise a way to `app` to receive the result of performing a search operation whenever a user clicks on the button. Update all other views as a result of this operation.
 
 ### Initialize the app with live data
 
-Before integrating live data, you should take a minute to appreciate how far you got with the `exampleVideoData`. Now you can tackle the complexity of starting to use actual data in isolation, and assuming the shape of the live data is the same as the data you mocked out, everything will continue working. If you made your helper correctly, this following section should be simple.
+The last step will be to replace your mocked data with live data. To do this, the app should initialize itself by executing a "default" search and populating its components with the results of this search.
+
+Before integrating live data, you should take a minute to appreciate how far you got with the `exampleVideoData`. Now you can tackle the complexity of starting to use actual data in isolation, and assuming the shape of the live data is the same as the data you mocked out, everything will continue working. If you made your helper correctly, this following section can be completed rather quickly.
 
 - [ ] As you've done with other modules, make `youTube` available for consumption by your `app` component
 - [ ] Replace `exampleVideoData` during the initialization of `app` with empty initial values, appropriate to the type of values it is expecting
@@ -170,7 +192,7 @@ Build out `search` and update other components:
 Make better use of Angular's dependency injection.
 
 - [ ] Inline functions are difficult to test. If you used a controller function in any of your directives, refactor those directive so the controller functions are instantiated by Angular on an as needed.
-- [ ] If you made use of the `youTube` service inside your `search` component, you have made your component very specific to one specific provider of content. Devise a way for your `search` component to receive it's provider from its parent component instead. Refactor as needed.
+- [ ] If you made use of the `youTube` service inside your `search` component, you have made your component very specific to one provider of content. Devise a way for your `search` component to receive it's provider from its parent component instead. Refactor as needed. Enable the test in `searchSpec` in the advanced content section.
 
 ## More Advanced Content
 
