@@ -1,6 +1,6 @@
 {
-  "name": "ng-cast",
-  "description": "Re-build your Recast.ly video player in AngularJS.",
+  "name": "ng-cast: a new $scope",
+  "description": "Build a Video Player in AngularJS.",
 
   "phases": {
 
