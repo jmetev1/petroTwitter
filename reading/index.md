@@ -20,7 +20,7 @@ In this sprint, you are going to work with another front-end framework, rebuildi
 
 When designing and building front-end applications, a good approach is to break apart the functionality of the application into small, easily understandable and reusable pieces, often called *components*. In many ways AngularJS is similarl to React, by using custom html elements as a way to define components.
 
-The constuct used to create component in Angular is called a *directive* (there are several types of directives, components are created using element directives). Angular's element directives are custom HTML elements with special powers. When composed together in just the right way, these components work in concert to accomplish the goals of the application you are building.
+The constuct used to create components in Angular is called a *directive* (there are several types of directives, components are created using element directives). Angular's element directives are custom HTML elements with special powers. When composed together in just the right way, these components work in concert to accomplish the goals of the application you are building.
 
 The practice of teasing apart an application into small components lies somewhere in the spectrum between an art and a science. There are often several ways to accomplish the same goal, and more artful approaches tend to yield better quality code that is equally as simple to understand. Through your own experiences -- both positive and negative -- you will develop skills to artfully navigate this terrain.
 
