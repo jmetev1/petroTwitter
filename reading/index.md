@@ -94,13 +94,16 @@ Your ultimate goal is to build a working app that looks like the one in the anim
 - [ ] Explore the codebase to get an understanding of each component's responsibility. Relate the code you see to the previous diagram and ensure you understand how the components relate to each other. An essential aspect of this first step is to understand the HTML for each component too.
 - [ ] Inside of `src/components/app.js`, write the directive code that will render this component to the DOM.
 
+### Configure Mocked Data
+
 When building out front-end applications, a hightly productive technique is to temporarily ignore the complexity of working with real data (via an API) by making use of "mocked" sample data. For the next several steps, you're going to use the sample data contained in `src/data/exampleVideoData.js`.
+
+- [ ] Include `src/data/exampleVideoData.js` in `index.html` so it can be used by your application
 
 ### Create a dynamic Video List component
 
 Your first goal is to build the `videoList` component and its partner component, `videoListEntry`, that together render whatever list of videos is supplied to them. When it's all set up, you should see the titles, thumbnails, and descriptions of some Angular Tutorials on the page.
 
-- [ ] Include `src/data/exampleVideoData.js` in `index.html` so it can be used by your application
 - [ ] Pass the data from `exampleVideoData` into the `videoList` component
 - [ ] Refactor the `videoList` component to dynamically render one `videoListEntry` component for each video object in `exampleVideoData`, passing in the video data to `videoListEntry`
 - [ ] Refactor the `videoListEntry` component to dynamically render based on the video object it receives
