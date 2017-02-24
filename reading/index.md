@@ -81,7 +81,7 @@ npm comes with a handy [scripting](https://docs.npmjs.com/misc/scripts) feature 
 
 ### Testing with Karma
 
-Angular recommends the use of [Karma](https://docs.angularjs.org/guide/unit-testing) for testing. Karma runs tests by opening a browser window. Much like `live-server`, Karma watches for changes to your code and re-runs the tests automatically. Additionally, Karma provides a debug interface right from the test page! Like in previous sprints, use `npm test` to run tests.
+Angular recommends the use of [Karma](https://docs.angularjs.org/guide/unit-testing) for testing. Karma runs tests by opening a browser window. Much like `live-server`, Karma watches for changes to your code and re-runs the tests automatically. Additionally, Karma provides a debug interface right from the test page! Like in previous sprints, use `npm test` to run tests. When the browser opens, Karma only displays a summary. To see the actual tests, click `debug`.
 
 ## Bare Minimum Requirements
 
@@ -92,7 +92,7 @@ Your ultimate goal is to build a working app that looks like the one in the anim
 ### Initial Steps
 
 - [ ] Explore the codebase to get an understanding of each component's responsibility. Relate the code you see to the previous diagram and ensure you understand how the components relate to each other. An essential aspect of this first step is to understand the HTML for each component too.
-- [ ] Inside of `src/components/app.js`, write the directive code that will render this component to the DOM.
+- [ ] Inside of `src/components/app.js`, write the directive code that will render this component to the DOM. Not all of the tests in `appSpec` are pertinent at this time. Be sure to follow the MVP practice, that is writing the minimum code at each step.
 
 ### Configure Mocked Data
 
@@ -112,7 +112,7 @@ Your first goal is to build the `videoList` component and its partner component,
 
 At this point you might notice that your app appears to be working correctly but you might be having a hard time getting your tests to pass. If you made use of `$scope` in your controller you are making use of an outdated AngularJS design pattern.
 
-AngularJS strongly recommends the use of `controllerAs` along with `bindToController` when building directives. This technique allows you to reference the scope from with your view templates explicitly, using the name you supply, instead of the commonly misused "implied binding" technique (which is often viewed as mysterious). You can read [this guide](http://busypeoples.github.io/post/thinking-in-components-angular-js/) to learn more about `controllerAs` and why this is the preferred syntax.
+AngularJS strongly recommends the use of `controllerAs` along with `bindToController` when building directives. This technique allows you to reference the scope from with your view templates explicitly, using the name you supply, instead of the commonly misused "implied binding" technique (which is often viewed as mysterious). You can read [this guide](https://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html) to learn more about `controllerAs` and why this is the preferred syntax.
 
 - [ ] Modify your directive to make use of the `controllerAs` syntax. In order to pass the tests, you must call your scope variable `ctrl`. If you are unable to make this work, you may optionally remove the reference to `ctrl` from the tests.
 
@@ -201,16 +201,22 @@ Make better use of Angular's dependency injection.
 
 Our advanced content is intended to throw you in over your head, requiring you to solve problems with very little support or oversight, much like you would as a mid or senior-level engineer. The following problem is no exception, and you may have to do a fair amount of work to get enough context to get started on the problem itself.
 
+- [ ] Allow your search component to respond to an `enter` key press
 - [ ] Create a `videoDetails` component that makes another request to the YouTube API and renders more complete video information to the page
 - [ ] Create an auto-play toggle button that will automatically start playing the video selected from `videoList`
 - [ ] Give each video it's own unique url with the help of [Angular Router](https://docs.angularjs.org/api/ngRoute)
-- [ ] Refactor `searchYouTube` to use the [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function to make HTTP requests, instead of `$.ajax`
+- [ ] Refactor to use AngularJS's `component` syntax. Update your tests to match as needed.
 - [ ] Use a module loader like [webpack](https://webpack.github.io/), or [SystemJS](https://github.com/systemjs/systemjs) instead of adding modules as `script` tags
 
 ## Resources
 
-* [Angular Directives](https://docs.angularjs.org/guide/directive)
-* [Google's Angular Tutorial](https://docs.angularjs.org/tutorial)
+* [A simple 'Hello World' Tutorial](http://viralpatel.net/blogs/angularjs-introduction-hello-world-tutorial/)
+* [ng-newsletter Tutorial Part 1](http://www.ng-newsletter.com/posts/beginner2expert-how_to_start.html)
+* [ng-newsletter Tutorial Part 2](http://www.ng-newsletter.com/posts/beginner2expert-scopes.html)
+* [ng-newsletter Tutorial Part 3](http://www.ng-newsletter.com/posts/beginner2expert-data-binding.html)
+* [ng-newsletter Tutorial Part 4 -- skip 'Directives in our app' ](http://www.ng-newsletter.com/posts/beginner2expert-directives.html)
+* [ng-newsletter Directives Tutorial](http://www.ng-newsletter.com/posts/directives.html)
+* [AngularJS Directives (official docs)](https://docs.angularjs.org/guide/directive)
 * [Component Based Thinking in AngularJS](http://busypeoples.github.io/post/thinking-in-components-angular-js/)
 * [YouTube API](https://developers.google.com/youtube/v3/getting-started)
 * [The AngularJS Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
