@@ -37,7 +37,7 @@ describe('video list', function() {
     });
   });
 
-  it('should not use & binding', function() {
+  it('should not use & function binding', function() {
     var fakeOnClick = function () {};
     createVideoListElement({ onClick: fakeOnClick }, function(element) {
       expect(element.isolateScope().ctrl.onClick).to.equal(fakeOnClick);

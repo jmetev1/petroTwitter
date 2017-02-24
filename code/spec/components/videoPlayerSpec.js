@@ -8,7 +8,6 @@ describe('video player', function() {
   var catElement, jsElement, noVideoElement;
 
   beforeEach(inject(function($rootScope, $compile) {
-    // TODO: refactor to be more dry
     var catScope = $rootScope.$new();
     catScope.video = fakeVideoData[0];
 
@@ -31,7 +30,7 @@ describe('video player', function() {
   it('should correctly set video property on isolate scope', function() {
     expect(catElement.isolateScope().ctrl.video.snippet.title).to.equal(fakeVideoData[0].snippet.title);
     expect(jsElement.isolateScope().ctrl.video.snippet.title).to.equal(moreFakeVideoData[0].snippet.title);
-    
+
     expect(catElement.isolateScope().ctrl.video.snippet.description).to.equal(fakeVideoData[0].snippet.description);
     expect(jsElement.isolateScope().ctrl.video.snippet.description).to.equal(moreFakeVideoData[0].snippet.description);
 

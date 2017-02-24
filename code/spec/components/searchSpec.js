@@ -2,9 +2,9 @@ var expect = chai.expect;
 
 describe('search', function() {
   var element, scope, youTubeSearchMock, resultSpy;
-  
+
   beforeEach(module('video-player'));
-  
+
   beforeEach(module('templates'));
   beforeEach(inject(function($rootScope, $compile, youTube) {
     resultSpy = sinon.spy();
@@ -31,13 +31,13 @@ describe('search', function() {
     expect(element.isolateScope().ctrl.result).to.be.a('function');
   });
 
-  it('should not use & binding', function() {
+  it('should not use & function binding', function() {
     expect(element.isolateScope().ctrl.result).to.equal(resultSpy);
   });
 
   it('should invoke search when button is clicked', function() {
     element.find('button').click();
-    expect(youTubeSearchMock.callCount).to.equal(1); 
+    expect(youTubeSearchMock.callCount).to.equal(1);
   });
 
   it('should invoke the result function with the results of the search', function() {
@@ -53,5 +53,5 @@ describe('search', function() {
     expect(element.isolateScope().ctrl.service).to.exist;
     expect(element.isolateScope().ctrl.service).to.be.a('object');
   });
-  
+
 });
