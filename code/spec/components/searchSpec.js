@@ -1,12 +1,13 @@
 var expect = chai.expect;
 
 describe('search', function() {
-  var element, scope, youTubeSearchMock;
+  var element, scope, youTubeSearchMock, resultSpy;
   
   beforeEach(module('video-player'));
   
   beforeEach(module('templates'));
   beforeEach(inject(function($rootScope, $compile, youTube) {
+    resultSpy = sinon.spy();
     scope = $rootScope.$new();
 
     youTubeSearchMock = sinon.spy(function(string, callback) {
@@ -16,7 +17,7 @@ describe('search', function() {
     youTube.search = youTubeSearchMock;
 
     scope.service = youTube;
-    scope.result = sinon.spy();
+    scope.result = resultSpy;
 
 
     element = angular.element('<search data-service="service" data-result="result"></search>');
@@ -28,6 +29,10 @@ describe('search', function() {
   it('should have a result function on the scope', function() {
     expect(element.isolateScope().ctrl.result).to.exist;
     expect(element.isolateScope().ctrl.result).to.be.a('function');
+  });
+
+  it('should not use & binding', function() {
+    expect(element.isolateScope().ctrl.result).to.equal(resultSpy);
   });
 
   it('should invoke search when button is clicked', function() {

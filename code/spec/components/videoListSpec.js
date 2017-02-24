@@ -3,7 +3,7 @@ var expect = chai.expect;
 describe('video list', function() {
   // Load the module video-player
   beforeEach(module('video-player'));
-  // Loat the module that will handle caching of template html
+  // Load the module that will handle caching of template html
   beforeEach(module('templates'));
 
   var createVideoListElement = function(addToScope, callback) {
@@ -17,7 +17,6 @@ describe('video list', function() {
     });
   };
 
-  // TODO: Fred, is this too much information to give away?
   it('should use controller as syntax, specifically controller as ctrl', function() {
     createVideoListElement({ videos: fakeVideoData }, function(element) {
       expect(element.isolateScope().ctrl).to.exist;
@@ -35,6 +34,13 @@ describe('video list', function() {
     createVideoListElement({ onClick: function () {} }, function(element) {
       expect(element.isolateScope().ctrl.onClick).to.exist;
       expect(element.isolateScope().ctrl.onClick).to.be.a('function');
+    });
+  });
+
+  it('should not use & binding', function() {
+    var fakeOnClick = function () {};
+    createVideoListElement({ onClick: fakeOnClick }, function(element) {
+      expect(element.isolateScope().ctrl.onClick).to.equal(fakeOnClick);
     });
   });
 
