@@ -83,6 +83,17 @@ npm comes with a handy [scripting](https://docs.npmjs.com/misc/scripts) feature 
 
 Angular recommends the use of [Karma](https://docs.angularjs.org/guide/unit-testing) for testing. Karma runs tests by opening a browser window. Much like `live-server`, Karma watches for changes to your code and re-runs the tests automatically. Additionally, Karma provides a debug interface right from the test page! Like in previous sprints, use `npm test` to run tests. When the browser opens, Karma only displays a summary. To see the actual tests, click `debug`.
 
+## Try the Problem Tutorials
+
+During the "Try the Problem" phase, work through as many of the following tutorials as you can. If you can't get through everything -- that's ok -- it's best not to use up time devoted to pairing for these tutorials.
+
+- [ ] [A simple 'Hello World' Tutorial](http://viralpatel.net/blogs/angularjs-introduction-hello-world-tutorial/)
+- [ ] [ng-newsletter Tutorial Part 1](http://www.ng-newsletter.com/posts/beginner2expert-how_to_start.html)
+- [ ] [ng-newsletter Tutorial Part 2](http://www.ng-newsletter.com/posts/beginner2expert-scopes.html)
+- [ ] [ng-newsletter Tutorial Part 3](http://www.ng-newsletter.com/posts/beginner2expert-data-binding.html)
+- [ ] [ng-newsletter Tutorial Part 4 -- skip 'Directives in our app' ](http://www.ng-newsletter.com/posts/beginner2expert-directives.html)
+- [ ] [ng-newsletter Directives Tutorial](http://www.ng-newsletter.com/posts/directives.html)
+
 ## Bare Minimum Requirements
 
 Your ultimate goal is to build a working app that looks like the one in the animated gif below, using the included tests as your guide. After completing the Bare Minimum Requirements, you'll be able to search, display, and play any video from YouTube.
@@ -112,7 +123,7 @@ Your first goal is to build the `videoList` component and its partner component,
 
 At this point you might notice that your app appears to be working correctly but you might be having a hard time getting your tests to pass. If you made use of `$scope` in your controller you are making use of an outdated AngularJS design pattern.
 
-AngularJS strongly recommends the use of `controllerAs` along with `bindToController` when building directives. This technique allows you to reference the scope from with your view templates explicitly, using the name you supply, instead of the commonly misused "implied binding" technique (which is often viewed as mysterious). You can read [this guide](https://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html) to learn more about `controllerAs` and why this is the preferred syntax.
+AngularJS strongly recommends the use of `controllerAs` along with `bindToController` when building directives. This technique allows you to reference the scope from with your view templates explicitly, using the name you supply, instead of the commonly misused "implied binding" technique (which is often viewed as mysterious). It is highly recommended that you take the time to read [this guide](https://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html) to learn more about `controllerAs` and why this is the preferred syntax.
 
 - [ ] Modify your directive to make use of the `controllerAs` syntax. In order to pass the tests, you must call your scope variable `ctrl`. If you are unable to make this work, you may optionally remove the reference to `ctrl` from the tests.
 
@@ -210,13 +221,8 @@ Our advanced content is intended to throw you in over your head, requiring you t
 
 ## Resources
 
-* [A simple 'Hello World' Tutorial](http://viralpatel.net/blogs/angularjs-introduction-hello-world-tutorial/)
-* [ng-newsletter Tutorial Part 1](http://www.ng-newsletter.com/posts/beginner2expert-how_to_start.html)
-* [ng-newsletter Tutorial Part 2](http://www.ng-newsletter.com/posts/beginner2expert-scopes.html)
-* [ng-newsletter Tutorial Part 3](http://www.ng-newsletter.com/posts/beginner2expert-data-binding.html)
-* [ng-newsletter Tutorial Part 4 -- skip 'Directives in our app' ](http://www.ng-newsletter.com/posts/beginner2expert-directives.html)
-* [ng-newsletter Directives Tutorial](http://www.ng-newsletter.com/posts/directives.html)
 * [AngularJS Directives (official docs)](https://docs.angularjs.org/guide/directive)
 * [Component Based Thinking in AngularJS](http://busypeoples.github.io/post/thinking-in-components-angular-js/)
+* [bindToController and controllerAs](https://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html)
 * [YouTube API](https://developers.google.com/youtube/v3/getting-started)
 * [The AngularJS Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
