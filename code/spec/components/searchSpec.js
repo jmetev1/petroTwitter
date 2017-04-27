@@ -49,7 +49,7 @@ describe('search', function() {
   // ADVANCED CONTENT TEST
   /* START SOLUTION */
   it /* ELSE
-  xit END SOLUTION */('should have access to a search service the scope', function() {
+  xit END SOLUTION */('should have access to a search service within the scope', function() {
     expect(element.isolateScope().ctrl.service).to.exist;
     expect(element.isolateScope().ctrl.service).to.be.a('object');
   });
