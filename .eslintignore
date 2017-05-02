@@ -3,4 +3,4 @@
 **/vendor
 **/*.min.js
 code/spec/lib
-lecture-resources/*
+teaching/*
