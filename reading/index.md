@@ -166,7 +166,7 @@ It is common to encapsulate code that performs a specific API action into its ow
 
 To search for YouTube videos, you'll use the API's [Search:list](https://developers.google.com/youtube/v3/docs/search/list) endpoint. To help keep your code organized, write a helper function that is solely responsible for interacting with this endpoint.
 
-- [ ] In `lib/youTube.js`, create an Angular service to fetch data from YouTube's API.
+- [ ] In `services/youTube.js`, create an Angular service to fetch data from YouTube's API.
 - [ ] Use the Angular provider `$http` to send a `GET` request to the search endpoint. **You should never use jQuery in this sprint**
 - [ ] Accept a `callback` function that is invoked with the videos array that is returned from hitting the endpoint
 - [ ] The `$http` provider should receive a `params` object with the following properties:
