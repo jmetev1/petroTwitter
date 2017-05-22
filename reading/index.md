@@ -26,7 +26,7 @@ The practice of teasing apart an application into small components lies somewher
 
 The specific extent of each component's capabilities is another area that you will find challenging. With practice, you will learn how much capability to give each element and be able to identify where to place code that implements those capabilities.
 
-In this sprint, the decision about how to split the app into componenets has already been made for you. Each directive lives in its own file inside of the `src/components` directory. During this sprint you will be building out these directives to correctly interact with each other and the YouTube data API. Here's how they are organized:
+In this sprint, the decision about how to split the app into components has already been made for you. Each directive lives in its own file inside of the `src/components` directory. During this sprint you will be building out these directives to correctly interact with each other and the YouTube data API. Here's how they are organized:
 
 ![Video Player component layout](https://s3-us-west-2.amazonaws.com/sprint.content/course.ng-cast/components.png "Video Player component layout")
 
