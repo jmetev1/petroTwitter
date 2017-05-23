@@ -3,3 +3,4 @@
 **/vendor
 **/*.min.js
 spec/lib
+src/data/exampleVideoData.js

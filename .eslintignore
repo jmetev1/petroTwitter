@@ -3,4 +3,5 @@
 **/vendor
 **/*.min.js
 code/spec/lib
+code/src/data/exampleVideoData.js
 teaching/*
