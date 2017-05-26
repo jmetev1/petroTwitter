@@ -222,7 +222,9 @@ Our advanced content is intended to throw you in over your head, requiring you t
 ## Resources
 
 * [AngularJS Directives (official docs)](https://docs.angularjs.org/guide/directive)
+* [AngularJS Components (official docs)](https://docs.angularjs.org/guide/component)
 * [Component Based Thinking in AngularJS](http://busypeoples.github.io/post/thinking-in-components-angular-js/)
+* [From Directive to Component](https://toddmotto.com/exploring-the-angular-1-5-component-method/)
 * [bindToController and controllerAs](https://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html)
 * [YouTube API](https://developers.google.com/youtube/v3/getting-started)
 * [The AngularJS Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
