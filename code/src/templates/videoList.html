@@ -1,6 +1,3 @@
-<ul class="video-list">
-  
-  <video-list-entry ng-repeat = 'video in data' >{{video}}</video-list-entry>
+<ul ng-controller = 'ListControl' class="video-list">  
+  <video-list-entry ng-repeat = 'video in ctrl.data' >{{video}}</video-list-entry>
 </ul>
-
-

@@ -1,12 +1,13 @@
 angular.module('video-player')
-  .controller('VideoListEntry', function($scope) {
-    $scope.chooseThis = function() {
+  .controller('VideoListEntry', function() {
+    this.chooseThis = function() {
     };
-    // $scope.title = 
-    // $scope.desc = 'watch this hawk fail at life';
   })
   .directive('videoListEntry', function() {
     return {
+      controller: 'VideoListEntry',
+      controllerAs: 'ctrl',
+      bindToController: true,
       templateUrl: 'src/templates/videoListEntry.html',
       restrict: 'E'
     };
