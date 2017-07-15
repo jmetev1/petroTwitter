@@ -3,10 +3,11 @@ angular.module('video-player')
     this.search = function(a, cb) {
       $http({
         method: 'GET',
-        url: `https://www.googleapis.com/youtube/v3/search?key={{a.key}}&type=video&parts=snippet&q={{a.query}}&maxResults={{a.maxResults}}`        
-      }).success(function(data) {
-        console.log(data);
+        url: `https://www.googleapis.com/youtube/v3/search/?key=${a.key}&type=video&part=snippet&q=${a.query}&maxResults=${a.maxResults}`        
+      }).then(function(data) {
         cb(data);
-      });  
-    };    
+      }, function(data) {
+        console.log('yu failed', data);
+      });   
+    };
   });

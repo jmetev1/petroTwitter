@@ -1,7 +1,7 @@
 angular.module('video-player')
   
   .controller('ListControl', function(videoService) {
-    this.data = videoService.videos;
+    // this.data = videoService.videos;
   })
 
   .directive('videoList', function() {

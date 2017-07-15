@@ -11,7 +11,7 @@ angular.module('video-player')
 
   .controller('videoControl', function() {
     // var data = window.exampleVideoData;
-    // this.selectVideo = function() {
+    // this.selectVideo = function() {};
     // this.onClick = function(video)      
     // };
     // this.searchResults = function() {
