@@ -1,6 +1,9 @@
 angular.module('video-player')
   .controller('Search', function() {
-    console.log(this.result);
+    this.clickHandler = (query) => {
+      this.service(query, this.result);
+    };
+
   })
   
   .directive('search', function() {
@@ -8,6 +11,7 @@ angular.module('video-player')
       templateUrl: 'src/templates/search.html',
       restrict: 'E',
       scope: {
+        service: '<',
         result: '<'
       },
       controller: 'Search',

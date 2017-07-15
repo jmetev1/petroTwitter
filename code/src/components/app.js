@@ -12,36 +12,30 @@ angular.module('video-player')
   .controller('videoControl', function(youTube) {
     // var data = window.exampleVideoData;
     this.selectVideo = function() {};
-    this.onClick = function(video) {
-      this.currentVideo = video;     
-    };
+    // this.onClick = function(video) {
+    //   this.currentVideo = video;     
+    // };
     this.currentVideo = window.exampleVideoData[0];
     this.videos = window.exampleVideoData;
 
   
-    this.chooseThis = function(video) {
-      this.current = video;
-      // console.log(videoService.playing.snippet.title)
-    };
-    this.searchResults = function(q) {
-      console.log(q);
-      youTube.search({
-        key: window.YOUTUBE_API_KEY, 
-        query: q,
-        maxResults: 5
-      }, (data) => {
-        this.currentVideo = data.data.items[0];
-        this.videos = data.data.items;
-      });
-    }; 
+    this.result = function(data) {  
+      console.log(this, data);
+      this.currentVideo = data.data.items[0];
+      this.videos = data.data.items;
+    }.bind(this);
+    // this.searcher = function(q, cb) {
+    //   youTube.search({
+    //     key: window.YOUTUBE_API_KEY, 
+    //     query: q,
+    //     maxResults: 5
+    //   }, cb);
+    // }; 
+    this.searcher = youTube.search;
   })
-
-
   .directive('app', function() { 
     return {
-      scope: {
-  
-      },
+      scope: {},
       controller: 'videoControl',
       controllerAs: 'ctrl',
       bindToController: true,

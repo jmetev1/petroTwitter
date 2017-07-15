@@ -1,9 +1,15 @@
 angular.module('video-player')
-  .service('youTube', function($http) { 
+  .service('youTube', function($http, $window) { 
     this.search = function(a, cb) {
-      $http({
-        method: 'GET',
-        url: `https://www.googleapis.com/youtube/v3/search/?key=${a.key}&type=video&part=snippet&q=${a.query}&maxResults=${a.maxResults}`        
+      $http.get('https://www.googleapis.com/youtube/v3/search', {
+        params: {
+          part: 'snippet', 
+          q: a,
+          type: 'video',
+          maxResults: 5,
+          key: $window.YOUTUBE_API_KEY,
+          videoEmbeddable: 'true',
+        }
       }).then(function(data) {
         cb(data);
       }, function(data) {
