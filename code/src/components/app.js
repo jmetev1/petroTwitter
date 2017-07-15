@@ -1,14 +1,24 @@
 angular.module('video-player')
-  .controller('videoControl', function() {
-    var data = window.exampleVideoData;
-    this.selectVideo = function() {
-      
+  .service('videoService', function() {
+    this.videos = window.exampleVideoData;
+    this.playing = window.exampleVideoData[0];
+    return {
+      videos: this.videos,
+      playing: this.playing
     };
-    this.searchResults = function() {
+  })
+  
 
-    };
-    this.currentVideo = {};
-    this.videos = data;
+  .controller('videoControl', function() {
+    // var data = window.exampleVideoData;
+    // this.selectVideo = function() {
+    // this.onClick = function(video)      
+    // };
+    // this.searchResults = function() {
+
+    // };
+    // this.currentVideo = {};
+    // this.videos = data;
   })
 
 
