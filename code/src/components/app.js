@@ -9,23 +9,38 @@ angular.module('video-player')
   })
   
 
-  .controller('videoControl', function() {
+  .controller('videoControl', function(youTube) {
     // var data = window.exampleVideoData;
-    // this.selectVideo = function() {};
-    // this.onClick = function(video)      
-    // };
-    // this.searchResults = function() {
+    this.selectVideo = function() {};
+    this.onClick = function(video) {
+      this.currentVideo = video;     
+    };
+    this.currentVideo = window.exampleVideoData[0];
+    this.videos = window.exampleVideoData;
 
-    // };
-    // this.currentVideo = {};
-    // this.videos = data;
+  
+    this.chooseThis = function(video) {
+      this.current = video;
+      // console.log(videoService.playing.snippet.title)
+    };
+    this.searchResults = function(q) {
+      console.log(q);
+      youTube.search({
+        key: window.YOUTUBE_API_KEY, 
+        query: q,
+        maxResults: 5
+      }, (data) => {
+        this.currentVideo = data.data.items[0];
+        this.videos = data.data.items;
+      });
+    }; 
   })
 
 
   .directive('app', function() { 
     return {
       scope: {
-        data: '<'
+  
       },
       controller: 'videoControl',
       controllerAs: 'ctrl',
