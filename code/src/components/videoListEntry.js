@@ -1,14 +1,18 @@
+
 angular.module('video-player')
-  .controller('VideoListEntry', function() {
-    this.chooseThis = function() {
-    };
+  .controller('VideoListEntry', function(videoService) {
+    
   })
+  
   .directive('videoListEntry', function() {
     return {
       controller: 'VideoListEntry',
-      controllerAs: 'ctrl',
+      controllerAs: 'ctrl3',
       bindToController: true,
       templateUrl: 'src/templates/videoListEntry.html',
       restrict: 'E'
     };
   });
+  
+  
+  
