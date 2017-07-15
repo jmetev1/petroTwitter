@@ -1,13 +1,9 @@
 angular.module('video-player')
-  .controller('Search', function($scope) {
-    //new search with
+  .controller('Search', function() {
+    
+    
     $scope.newSearch = function(input) {
-      //the value
-
-      // alert('newsearch called with', $scope.query);
-      // $scope.query
-      //after
-      $scope.query = '';
+    
     }; 
 
 
