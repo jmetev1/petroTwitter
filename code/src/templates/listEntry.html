@@ -1,0 +1,22 @@
+<li class="video-list-entry media">
+  <div class="col-md-8">
+  <div class="media-body">
+    <div class="video-list-entry-title" 
+      ng-click='$ctrl.videoCtrl.selectPost($ctrl.post)'>
+      {{$ctrl.post.title}}
+    </div>
+    <div class="video-list-entry-detail">
+      {{$ctrl.post.body}}</div>
+      <div class="video-list-entry-title"
+        ng-click='$ctrl.videoCtrl.selectUser($ctrl.post)'>
+        By {{$ctrl.post.userId}}</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <button type="button" class="btn btn-primary" 
+      ng-model="$ctrl.singleModel" uib-btn-checkbox 
+      btn-checkbox-true="$ctrl.liked" btn-checkbox-false="$ctrl.unliked">
+      {{$ctrl.singleModel}}
+    </button>
+  </div>
+</li>

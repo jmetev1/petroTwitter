@@ -3,27 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A new $scope</title>
+  <title>Quotes From Roman Emperors</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
   <script src="node_modules/lodash/lodash.js"></script>
-  <script src="node_modules/angular/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
 </head>
 <body>
-  <app ng-app="video-player">
-    <div ng-controller = 'videoControl'></div>
-    <h5><br/><br/>this message will disappear when <em>app</em> component is correctly rendered<br/><br/><br/></h5>
-    
+  <app ng-app="app">
+    <h5><br/><br/>this message will disappear when 100 <em>app</em> component is correctly rendered<br/><br/><br/></h5>
   </app>
-  <script src='src/data/exampleVideoData.js'></script>
   <script src='src/config/youtube.js'></script>
   <script src="src/index.js"></script>
   <script src="src/services/youTube.js"></script>
   <script src="src/components/app.js"></script>
-  <script src="src/components/videoPlayer.js"></script>
-  <script src="src/components/search.js"></script>
-  <script src="src/components/videoListEntry.js"></script>
-  <script src="src/components/videoList.js"></script>
-  
+  <script src="src/components/userView.js"></script>
+  <script src="src/components/listEntry.js"></script>
+  <script src="src/components/comments.js"></script>
+  <script src="src/components/editField.js"></script>
 </body>
 </html>

@@ -1,47 +1,30 @@
-angular.module('video-player')
-  .service('videoService', function() {
-    this.videos = window.exampleVideoData;
-    this.playing = window.exampleVideoData[0];
-    return {
-      videos: this.videos,
-      playing: this.playing
-    };
-  })
+angular.module('app').component('app', {
+  templateUrl: 'src/templates/app.html',
+  controller: appController
+});
+
+appController.$inject = ['dataservice'];
+
+function appController(dataservice) {
+  var vm = this;
+  vm.updateuser = function(hero, prop, value) {
+    hero[prop] = value;
+  };
+  vm.selectUser = function(s) {
+    vm.selectedUser = s;
+    dataservice.postsByUser(s.userId)
+    .then((data) => vm.videos = data)
+    dataservice.getUser(s.userId)
+    .then((data) => vm.userDetails = data)
+  };
+  vm.selectPost = function(s) { //shows post and its comments
+    vm.userDetails = {};
+    vm.selectedPost = s;
+    dataservice.getComments(s.id)
+    .then(data => vm.comments = data)
+  }
+
+  dataservice.allPosts('posts')
+  .then((data) => vm.posts = data)
+  }
   
-
-  .controller('videoControl', function(youTube) {
-    // var data = window.exampleVideoData;
-    this.selectVideo = function() {};
-    // this.onClick = function(video) {
-    //   this.currentVideo = video;     
-    // };
-    this.currentVideo = window.exampleVideoData[0];
-    this.videos = window.exampleVideoData;
-
-  
-    this.result = function(data) {  
-      console.log(this, data);
-      this.currentVideo = data.data.items[0];
-      this.videos = data.data.items;
-    }.bind(this);
-    // this.searcher = function(q, cb) {
-    //   youTube.search({
-    //     key: window.YOUTUBE_API_KEY, 
-    //     query: q,
-    //     maxResults: 5
-    //   }, cb);
-    // }; 
-    this.searcher = youTube.search;
-  })
-  .directive('app', function() { 
-    return {
-      scope: {},
-      controller: 'videoControl',
-      controllerAs: 'ctrl',
-      bindToController: true,
-      templateUrl: 'src/templates/app.html',
-      restrict: 'E'
-    };
-  });
-
-

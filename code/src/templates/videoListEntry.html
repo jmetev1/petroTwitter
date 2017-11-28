@@ -1,9 +1,0 @@
-<li ng-controller = 'VideoListEntry' class="video-list-entry media">
-  <div class="media-left">
-    <img class="media-object" src={{ctrl.video.snippet.thumbnails.default.url}} />
-  </div>
-  <div ng-click = 'ctrl.chooseThis(video)' class="media-body">
-    <div class="video-list-entry-title">{{ctrl.video.snippet.title}}</div>
-    <div ng-model = 'desc' class="video-list-entry-detail">{{ctrl.video.snippet.description}}</div>
-  </div>
-</li>

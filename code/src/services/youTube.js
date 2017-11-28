@@ -1,19 +1,48 @@
-angular.module('video-player')
-  .service('youTube', function($http, $window) { 
-    this.search = function(a, cb) {
-      $http.get('https://www.googleapis.com/youtube/v3/search', {
-        params: {
-          part: 'snippet', 
-          q: a,
-          type: 'video',
-          maxResults: 5,
-          key: $window.YOUTUBE_API_KEY,
-          videoEmbeddable: 'true',
-        }
-      }).then(function(data) {
-        cb(data);
-      }, function(data) {
-        console.log('yu failed', data);
-      });   
+angular.module('app')
+  .factory('dataservice', dataservice);
+
+dataservice.$inject = ['$http'];
+
+function dataservice($http) {
+    return {
+        allPosts: getAvengers,
+        postsByUser: postsByUser,
+        getComments: getComments,
+        getUser: getUser
     };
-  });
+    function getUser(userId) {
+        return $http.get(`http://jsonplaceholder.typicode.com/users/${userId}`)
+        .then(response => response.data)
+        .catch(error => console.log(error))
+    }
+    function getComments(postId) {
+        return $http.get(`http://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+        .then(response => response.data)
+        .catch(error => console.log(error))
+    }
+    function postsByUser(userId) {
+        return $http.get(`http://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        .then(getAvengersComplete)
+          .catch(getAvengersFailed);
+        function getAvengersComplete(response) {
+            return response.data;
+        }
+        function getAvengersFailed(error) {
+        console.log('failed')
+        }
+    }
+    function getAvengers(url) {
+        return $http.get(`http://jsonplaceholder.typicode.com/${url}`)
+            .then(getAvengersComplete)
+            .catch(getAvengersFailed);
+        function getAvengersComplete(response) {
+            return response.data;
+        }
+        function getAvengersFailed(error) {
+          console.log('failed')
+        }
+    }
+}
+// all post 
+// one post with comments
+// all posts by a user

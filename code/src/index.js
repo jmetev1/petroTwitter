@@ -1,7 +1,9 @@
-angular.module('video-player', [])
+angular.module('app', ['ui.bootstrap'])
+
 .config(function($sceDelegateProvider) {
   $sceDelegateProvider.resourceUrlWhitelist([
     'self',
-    'https://www.youtube.com/**'
+    'https://www.youtube.com/**',
+    'http://jsonplaceholder.typicode.com/*'
   ]);
 });

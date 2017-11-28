@@ -1,0 +1,30 @@
+
+   <edit-field user='$ctrl.user'></edit-field>
+   <div >not edit field{{$ctrl.user.username}}</div>
+   
+ <!-- <div ng-repeat='(key, value) in $ctrl.user'>
+   {{key}} {{value}}
+   <button ng-click='$ctrl.change($ctrl.user)'>change</button>
+ </div> -->
+ <div class="col-md-8">
+    <div class="media-body">
+      <div class="video-list-entry-title" 
+        ng-click='$ctrl.videoCtrl.selectPost($ctrl.post)'>
+        {{$ctrl.post.title}}
+      </div>
+      <div class="video-list-entry-detail">
+        {{$ctrl.post.body}}</div>
+        <div class="video-list-entry-title"
+          ng-click='$ctrl.videoCtrl.selectUser($ctrl.post)'>
+          By {{$ctrl.post.username}}</div>
+      </div>
+    </div>
+    <!-- <div class="col-md-4">
+      <button type="button" class="btn btn-primary" 
+        ng-model="$ctrl.singleModel" uib-btn-checkbox 
+        btn-checkbox-true="$ctrl.liked" btn-checkbox-false="$ctrl.unliked">
+        {{$ctrl.singleModel}}
+      </button>
+    </div> -->
+  
+
