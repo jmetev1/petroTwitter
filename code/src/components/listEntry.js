@@ -1,19 +1,15 @@
-angular.module('app').component('listEntry', {
+angular.module('appWrapper').component('listEntry', {
   templateUrl: 'src/templates/listEntry.html',
-  require: {
-    videoCtrl: '^app'
-  },
   controller: listController,
   bindings: {
     post: '<',
+    user: '='
   }
 });
 
 function listController() {
   let vm = this;
-  console.log(this)
-  vm.singleModel = 'Like';
   vm.unliked = 'Like';
   vm.liked = 'Liked';
-  vm.status = 'unset'
 }
+

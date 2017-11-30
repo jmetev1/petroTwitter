@@ -1,25 +1,2 @@
-<div id="app container">
-  <nav class="navbar">
-    <div class="col-md-6 col-md-offset-3">
-      <search service='ctrl.searcher' result="ctrl.result">
-        Search</search>
-    </div>
-  </nav>
-  <div class="row">
-    <div class="col-md-5" ng-if='$ctrl.userDetails.id !== undefined'>
-      <user-view user="$ctrl.userDetails">
-      </user-view>
-    </div>
-    <div class="col-md-5" ng-if='$ctrl.selectedPost'>
-      <list-entry post='$ctrl.selectedPost'></list-entry>
-      Comments
-      <comments ng-repeat='comment in $ctrl.comments' 
-      comment='comment'>
-      </comments>
-    </div>
-    <div class="col-md-7">
-      <list-entry ng-repeat = 'post in $ctrl.posts' 
-      post='post'></list-entry>
-    </div>
-  <div>
-</div>
+<list-entry ng-repeat = 'post in $ctrl.posts' 
+post='post' user='$ctrl.user(post)'></list-entry>

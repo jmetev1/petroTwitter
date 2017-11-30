@@ -11,18 +11,20 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+  <script src="//npmcdn.com/@uirouter/angularjs@1.0.5/release/angular-ui-router.js"></script>
 </head>
 <body>
-  <app ng-app="app">
-    <h5><br/><br/>this message will disappear when 100 <em>app</em> component is correctly rendered<br/><br/><br/></h5>
-  </app>
-  <script src='src/config/youtube.js'></script>
+  
+  <div ng-app="appWrapper">
+    <ui-view>One Moment</ui-view>
+  </div>
   <script src="src/index.js"></script>
   <script src="src/services/youTube.js"></script>
   <script src="src/components/app.js"></script>
+  <script src="src/components/core.js"></script>
   <script src="src/components/userView.js"></script>
   <script src="src/components/listEntry.js"></script>
-  <script src="src/components/comments.js"></script>
+  <script src="src/components/post.js"></script>
   <script src="src/components/editField.js"></script>
 </body>
 </html>

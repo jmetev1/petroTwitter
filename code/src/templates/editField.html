@@ -1,3 +1,17 @@
-<div>
-  <input ng-model='$ctrl.user.username'></input>
+<span ng-switch="$ctrl.editMode">
+  <input ng-switch-when="true" 
+    ng-model="$ctrl.value">
+  </input>
+  <span ng-switch-default>{{$ctrl.value}}</span>
+</span>
+<button ng-click="$ctrl.handleModeChange()">
+  {{$ctrl.editMode ? 'Save' : 'Edit'}}
+</button>
+<!-- 
+<div ng-if='$ctrl.editMode'>
+  <input ng-model='$ctrl.user'></input>
 </div>
+<div ng-if='!$ctrl.editMode'>
+  {{$ctrl.user}}
+</div>
+<button  -->

@@ -1,3 +1,5 @@
+1. caching enabled
+
  Basic AngularJS App
 
 Overview:

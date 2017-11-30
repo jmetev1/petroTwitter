@@ -1,0 +1,29 @@
+<list-entry 
+  post='$ctrl.post' user='$ctrl.user'>
+</list-entry>
+<li class="video-list-entry media">
+    <div class="media-body">
+      Comments
+    </div>
+</li>
+<li class="col-md-8 comment media" ng-repeat='comment in $ctrl.comments'>
+  <div class="video-list-entry ">
+      <div class="media-body">
+        <h5>
+          {{comment.name}}
+        </h5>
+        <div class="video-list-entry-detail">
+          by 
+          <a href=mailto:{{comment.email}}>
+              {{comment.email}}
+          </a>
+        </div>
+        <p>  
+          {{comment.body}}
+        </p>
+      </div>
+  </div>
+  <br>
+  <br>
+  
+</li>
